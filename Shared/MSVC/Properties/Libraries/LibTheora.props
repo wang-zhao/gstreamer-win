@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibTheoraMajorVersion>1</LibTheoraMajorVersion>
+    <LibTheoraMinorVersion>0</LibTheoraMinorVersion>
+    <LibTheoraMicroVersion>0</LibTheoraMicroVersion>
+    <LibTheoraApiInterfaceAge>0</LibTheoraApiInterfaceAge>
+    <LibTheoraVersionString>$(LibTheoraMajorVersion).$(LibTheoraMinorVersion).$(LibTheoraMicroVersion)</LibTheoraVersionString>
+    <LibTheoraApiVersionString>$(LibTheoraMajorVersion).$(LibTheoraMinorVersion)</LibTheoraApiVersionString>
+    <LibTheoraLibVersionString>$(LibTheoraApiVersionString)-$(LibTheoraApiInterfaceAge)</LibTheoraLibVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+    <_PropertySheetDisplayName>Theora</_PropertySheetDisplayName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>theora.lib;theoradec.lib;theoraenc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibTheoraMajorVersion">
+      <Value>$(LibTheoraMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibTheoraMinorVersion">
+      <Value>$(LibTheoraMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibTheoraMicroVersion">
+      <Value>$(LibTheoraMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibTheoraApiInterfaceAge">
+      <Value>$(LibTheoraApiInterfaceAge)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibTheoraVersionString">
+      <Value>$(LibTheoraVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibTheoraApiVersionString">
+      <Value>$(LibTheoraApiVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibTheoraLibVersionString">
+      <Value>$(LibTheoraLibVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,3240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectSchemaDefinitions xmlns="clr-namespace:Microsoft.Build.Framework.XamlTypes;assembly=Microsoft.Build.Framework" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:transformCallback="Microsoft.Cpp.Dev10.ConvertPropertyCallback">
+  <Rule
+    Name="Header_Installer_Tool"
+    PageTemplate="tool"
+    DisplayName="Headerfile Installation Tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="Header_Installer_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="Header_Installer_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <StringProperty
+      Name="ModuleName"
+      DisplayName="Directory prefix with module"
+      Description="Module name, meaning that headerfiles get installed to $(OutDir)\include\[ModuleName]\. Leave blank to install in the toplevel include directory ($(OutDir)\include\)." />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+	  Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="Header_Installer_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Header_Installer_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="Header_Installer_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Header_Installer_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="Header_Installer_Tool"
+    DisplayName="Headerfile Installation Tool" />
+  <FileExtension
+    Name="*.insthdr"
+    ContentType="Header_Installer_Tool" />
+  <ContentType
+    Name="Header_Installer_Tool"
+    DisplayName="Headerfile Installation Tool"
+    ItemType="Header_Installer_Tool" />
+  <Rule
+    Name="DotIn_Generator_Tool"
+    PageTemplate="tool"
+    DisplayName="DotIn Generator Tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="DotIn_Generator_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="DotIn_Generator_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <BoolProperty
+      Name="UseCustomOutputPath"
+      HelpContext="0"
+      DisplayName="Use Custom Output Path"
+      Description="If true, use the custom path defined instead of the default." />
+    <StringListProperty
+      Name="Substitute"
+      HelpContext="0"
+      DisplayName="Substitute"
+      Description="Substitutes argument 2 for argument 1: format {1}/{2}"
+      Separator=";"
+      Switch="-e &quot;s/[value]/g&quot;" />
+    <StringProperty
+      Name="SubDirOutput"
+      HelpContext="0"
+      DisplayName="Sub directory"
+      Description="Optional sub directory output. Output will be directed to $(IntDir)\[SubDirOutput] . Leave blank to output to $(IntDir)" />
+    <StringProperty
+      Name="OutputFileName"
+      HelpContext="0"
+      DisplayName="Output file name"
+      Description="Optional output file name. Default is $(InputName) (which is input file without extension)" />
+    <StringProperty
+      Name="CustomOutputPath"
+      HelpContext="0"
+      DisplayName="Custom Output Path"
+      Description="The path to save the output to" />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="DotIn_Generator_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^DotIn_Generator_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="DotIn_Generator_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^DotIn_Generator_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="DotIn_Generator_Tool"
+    DisplayName="DotIn Generator Tool" />
+  <FileExtension
+    Name="*.in;*.win32;*.x64"
+    ContentType="DotIn_Generator_Tool" />
+  <ContentType
+    Name="DotIn_Generator_Tool"
+    DisplayName="DotIn Generator Tool"
+    ItemType="DotIn_Generator_Tool" />
+  <Rule
+    Name="SED_Tool"
+    PageTemplate="tool"
+    DisplayName="Stream EDitor Tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="SED_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="SED_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <StringListProperty
+      Name="Expression"
+      HelpContext="0"
+      DisplayName="Expression"
+      Description="Stream EDitor expression"
+      Separator=" "
+      Switch="-e &quot;[value]&quot;" />
+    <StringProperty
+      Name="OutputFilePath"
+      HelpContext="0"
+      DisplayName="Output"
+      Description="Output file. Use $(OutDir) or similar macro." />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="SED_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^SED_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="SED_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^SED_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="SED_Tool"
+    DisplayName="Stream EDitor Tool" />
+  <FileExtension
+    Name="*.sedfoo"
+    ContentType="SED_Tool" />
+  <ContentType
+    Name="SED_Tool"
+    DisplayName="Stream EDitor Tool"
+    ItemType="SED_Tool" />
+  <Rule
+    Name="Pkg_Config_Tool"
+    PageTemplate="tool"
+    DisplayName="Pkg-Config Tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="Pkg_Config_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="Pkg_Config_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <StringListProperty
+      Name="AdditionalDeps"
+      HelpContext="0"
+      DisplayName="Additional dependencies"
+      Description="Should be used for temporary or configuration spesific dependencies."
+      Separator=" " />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="Pkg_Config_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Pkg_Config_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="Pkg_Config_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Pkg_Config_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="Pkg_Config_Tool"
+    DisplayName="Pkg-Config Tool" />
+  <FileExtension
+    Name="*.pc"
+    ContentType="Pkg_Config_Tool" />
+  <ContentType
+    Name="Pkg_Config_Tool"
+    DisplayName="Pkg-Config Tool"
+    ItemType="Pkg_Config_Tool" />
+  <Rule
+    Name="Pkg_Config_OAH_Dependencies_Tool"
+    PageTemplate="tool"
+    DisplayName="OAH Dependencies Tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="Pkg_Config_OAH_Dependencies_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="Pkg_Config_OAH_Dependencies_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <StringListProperty
+      Name="AdditionalDeps"
+      HelpContext="0"
+      DisplayName="Additional dependencies"
+      Description="Should be used for temporary or configuration spesific dependencies."
+      Separator=" " />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="Pkg_Config_OAH_Dependencies_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Pkg_Config_OAH_Dependencies_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="Pkg_Config_OAH_Dependencies_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Pkg_Config_OAH_Dependencies_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="Pkg_Config_OAH_Dependencies_Tool"
+    DisplayName="OAH Dependencies Tool" />
+  <FileExtension
+    Name="*.oahdeps"
+    ContentType="Pkg_Config_OAH_Dependencies_Tool" />
+  <ContentType
+    Name="Pkg_Config_OAH_Dependencies_Tool"
+    DisplayName="OAH Dependencies Tool"
+    ItemType="Pkg_Config_OAH_Dependencies_Tool" />
+  <Rule
+    Name="Symbols_Generator_Tool"
+    PageTemplate="tool"
+    DisplayName="Symbols Generator tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="Symbols_Generator_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="Symbols_Generator_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <StringListProperty
+      Name="PreprocessorDefinitions"
+      HelpContext="0"
+      HelpUrl="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vcmasm/html/vclrfml.asp"
+      DisplayName="Preprocessor Definitions"
+      Description="Defines a text macro with the given name.     (/D[symbol])"
+      Separator=";"
+      Switch="/D&quot;[value]&quot;" />
+    <StringListProperty
+      Name="Substitute"
+      HelpContext="0"
+      DisplayName="Substitute"
+      Description="Substitutes argument 2 for argument 1: format {1}/{2}"
+      Separator=";"
+      Switch="-e &quot;s/[value]/g&quot;" />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="Symbols_Generator_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Symbols_Generator_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="Symbols_Generator_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Symbols_Generator_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="Symbols_Generator_Tool"
+    DisplayName="Symbols Generator tool" />
+  <FileExtension
+    Name="*.symbols"
+    ContentType="Symbols_Generator_Tool" />
+  <ContentType
+    Name="Symbols_Generator_Tool"
+    DisplayName="Symbols Generator tool"
+    ItemType="Symbols_Generator_Tool" />
+  <Rule
+    Name="GObject_Marshaller_Generation_Tool"
+    PageTemplate="tool"
+    DisplayName="GObject Marshaller Generation Tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="GObject_Marshaller_Generation_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="GObject_Marshaller_Generation_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <BoolProperty
+      Name="NoStdInc"
+      Subcategory="GObject"
+      HelpContext="0"
+      DisplayName="NoStdInc"
+      Description="Disable standard includes."
+      Switch="--nostdinc" />
+    <BoolProperty
+      Name="Internal"
+      Subcategory="GObject"
+      HelpContext="0"
+      DisplayName="Internal"
+      Description="Mark generated functions as internal."
+      Switch="--internal" />
+    <StringProperty
+      Name="OutputSubdir"
+      HelpContext="0"
+      DisplayName="OutputSubdir"
+      Description="Subdirectory of output directory. Files are written to $(IntDir)\[OutputSubdir]. Optional; output ends up in $(IntDir) if not set." />
+    <StringProperty
+      Name="FunctionPrefix"
+      Subcategory="GObject"
+      HelpContext="0"
+      DisplayName="Prefix"
+      Description="Prefix for marshallers generated"
+      Switch="--prefix=[value]" />
+    <StringProperty
+      Name="CopyHeaderPath"
+      HelpContext="0"
+      DisplayName="Copy Header Path"
+      Description="Location to copy the header file to. Leave blank if not copying." />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="GObject_Marshaller_Generation_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^GObject_Marshaller_Generation_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="GObject_Marshaller_Generation_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^GObject_Marshaller_Generation_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="GObject_Marshaller_Generation_Tool"
+    DisplayName="GObject Marshaller Generation Tool" />
+  <FileExtension
+    Name="*.list"
+    ContentType="GObject_Marshaller_Generation_Tool" />
+  <ContentType
+    Name="GObject_Marshaller_Generation_Tool"
+    DisplayName="GObject Marshaller Generation Tool"
+    ItemType="GObject_Marshaller_Generation_Tool" />
+  <Rule
+    Name="GObject_Enum_Generation_Tool"
+    PageTemplate="tool"
+    DisplayName="GObject Enum Generation Tool (Template)"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="GObject_Enum_Generation_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="GObject_Enum_Generation_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <StringListProperty
+      Name="InputHeaders"
+      HelpContext="0"
+      DisplayName="Input Headers"
+      Description="List of absolute paths for input header files, separated by semicolon."
+      Separator=";" />
+    <StringProperty
+      Name="OutputSubdir"
+      HelpContext="0"
+      DisplayName="Output Subdir"
+      Description="Subdirectory of output directory. Files are written to $(IntDir)\[OutputSubdir]. Optional; output ends up in $(IntDir) if not set." />
+    <StringProperty
+      Name="InputHeaderDir"
+      HelpContext="0"
+      DisplayName="Input headers directory"
+      Description="Directory of input header files. Optional; Default: ProjectDir. Hence, could be relative from project directory." />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="GObject_Enum_Generation_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^GObject_Enum_Generation_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="GObject_Enum_Generation_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^GObject_Enum_Generation_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="GObject_Enum_Generation_Tool"
+    DisplayName="GObject Enum Generation Tool (Template)" />
+  <FileExtension
+    Name="*.template"
+    ContentType="GObject_Enum_Generation_Tool" />
+  <ContentType
+    Name="GObject_Enum_Generation_Tool"
+    DisplayName="GObject Enum Generation Tool (Template)"
+    ItemType="GObject_Enum_Generation_Tool" />
+  <Rule
+    Name="SDK_VSProps_Generation_Tool"
+    PageTemplate="tool"
+    DisplayName="SDK VSProps Generation Tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="SDK_VSProps_Generation_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="SDK_VSProps_Generation_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <StringProperty
+      Name="OutputFilenameBase"
+      HelpContext="0"
+      DisplayName="OutputFilenameBase"
+      Description="Base file name of vsprops file output, which get the named [OutputFilenameBase].vsprops."
+      Switch="[value]" />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="SDK_VSProps_Generation_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^SDK_VSProps_Generation_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="SDK_VSProps_Generation_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^SDK_VSProps_Generation_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="SDK_VSProps_Generation_Tool"
+    DisplayName="SDK VSProps Generation Tool" />
+  <FileExtension
+    Name="*.vsprops.in"
+    ContentType="SDK_VSProps_Generation_Tool" />
+  <ContentType
+    Name="SDK_VSProps_Generation_Tool"
+    DisplayName="SDK VSProps Generation Tool"
+    ItemType="SDK_VSProps_Generation_Tool" />
+  <Rule
+    Name="Copy_Tool"
+    PageTemplate="tool"
+    DisplayName="Copy Tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="Copy_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="Copy_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <BoolProperty
+      Name="ForceOverwrite"
+      HelpContext="0"
+      DisplayName="ForceOverwrite" />
+    <StringProperty
+      Name="DestinationPath"
+      HelpContext="0"
+      DisplayName="Destination Path"
+      Description="Place to copy file to" />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="Copy_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Copy_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="Copy_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Copy_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="Copy_Tool"
+    DisplayName="Copy Tool" />
+  <FileExtension
+    Name="*.h.in"
+    ContentType="Copy_Tool" />
+  <ContentType
+    Name="Copy_Tool"
+    DisplayName="Copy Tool"
+    ItemType="Copy_Tool" />
+  <Rule
+    Name="C_Preprocessor_Tool"
+    PageTemplate="tool"
+    DisplayName="C Preprocessor Tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="C_Preprocessor_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="C_Preprocessor_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <StringProperty
+      Name="PreprocessorOptions"
+      HelpContext="0"
+      DisplayName="Preprocessor Options" />
+    <StringProperty
+      Name="PreprocessorOutputPath"
+      HelpContext="0"
+      DisplayName="Preprocessor Output Path"
+      Description="The path and filename to save the output to." />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="C_Preprocessor_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^C_Preprocessor_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="C_Preprocessor_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^C_Preprocessor_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="C_Preprocessor_Tool"
+    DisplayName="C Preprocessor Tool" />
+  <FileExtension
+    Name="*.def.src"
+    ContentType="C_Preprocessor_Tool" />
+  <ContentType
+    Name="C_Preprocessor_Tool"
+    DisplayName="C Preprocessor Tool"
+    ItemType="C_Preprocessor_Tool" />
+  <Rule
+    Name="Perl_Tool"
+    PageTemplate="tool"
+    DisplayName="Perl Tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="Perl_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="Perl_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <StringProperty
+      Name="PerlOptions"
+      HelpContext="0"
+      DisplayName="PerlOptions" />
+    <StringProperty
+      Name="PerlOutputPath"
+      HelpContext="0"
+      DisplayName="Perl Output Path" />
+    <StringProperty
+      Name="InputOptions"
+      HelpContext="0"
+      DisplayName="Input Options" />
+    <StringProperty
+      Name="RunDirectory"
+      HelpContext="0"
+      DisplayName="Run Directory"
+      Description="The directory you want to call the Perl script from. Default is the directory of the script itself." />
+    <StringProperty
+      Name="MoveFileFromPath1"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File From Path (1)"
+      Description="File you need moved" />
+    <StringProperty
+      Name="MoveFileToPath1"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File To Path (1)"
+      Description="Where you want the file moved to" />
+    <StringProperty
+      Name="MoveFileFromPath2"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File From Path (2)"
+      Description="Where you want the file moved from" />
+    <StringProperty
+      Name="MoveFileToPath2"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File To Path (2)"
+      Description="Where you want the file moved to" />
+    <StringProperty
+      Name="MoveFileFromPath3"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File From Path (3)"
+      Description="Where you want the file moved from" />
+    <StringProperty
+      Name="MoveFileToPath3"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File To Path (3)"
+      Description="Where you want to move the file to" />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="Perl_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Perl_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="Perl_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Perl_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="Perl_Tool"
+    DisplayName="Perl Tool" />
+  <FileExtension
+    Name="*.pl"
+    ContentType="Perl_Tool" />
+  <ContentType
+    Name="Perl_Tool"
+    DisplayName="Perl Tool"
+    ItemType="Perl_Tool" />
+  <Rule
+    Name="Perl_2_Tool"
+    PageTemplate="tool"
+    DisplayName="Perl 2 Tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="Perl_2_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="Perl_2_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <StringProperty
+      Name="PerlOptions"
+      HelpContext="0"
+      DisplayName="PerlOptions" />
+    <StringProperty
+      Name="PerlOutputPath"
+      HelpContext="0"
+      DisplayName="Perl Output Path" />
+    <StringProperty
+      Name="InputOptions"
+      HelpContext="0"
+      DisplayName="Input Options" />
+    <StringProperty
+      Name="RunDirectory"
+      HelpContext="0"
+      DisplayName="Run Directory"
+      Description="The directory you want to call the Perl script from. Default is the directory of the script itself." />
+    <StringProperty
+      Name="MoveFileFromPath1"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File From Path (1)"
+      Description="File you need moved" />
+    <StringProperty
+      Name="MoveFileToPath1"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File To Path (1)"
+      Description="Where you want the file moved to" />
+    <StringProperty
+      Name="MoveFileFromPath2"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File From Path (2)"
+      Description="Where you want the file moved from" />
+    <StringProperty
+      Name="MoveFileToPath2"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File To Path (2)"
+      Description="Where you want the file moved to" />
+    <StringProperty
+      Name="MoveFileFromPath3"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File From Path (3)"
+      Description="Where you want the file moved from" />
+    <StringProperty
+      Name="MoveFileToPath3"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File To Path (3)"
+      Description="Where you want to move the file to" />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="Perl_2_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Perl_2_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="Perl_2_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Perl_2_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="Perl_2_Tool"
+    DisplayName="Perl 2 Tool" />
+  <FileExtension
+    Name="*.pl2"
+    ContentType="Perl_2_Tool" />
+  <ContentType
+    Name="Perl_2_Tool"
+    DisplayName="Perl 2 Tool"
+    ItemType="Perl_2_Tool" />
+  <Rule
+    Name="Perl_3_Tool"
+    PageTemplate="tool"
+    DisplayName="Perl 3 Tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="Perl_3_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="Perl_3_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <StringProperty
+      Name="PerlOptions"
+      HelpContext="0"
+      DisplayName="PerlOptions" />
+    <StringProperty
+      Name="PerlOutputPath"
+      HelpContext="0"
+      DisplayName="Perl Output Path" />
+    <StringProperty
+      Name="InputOptions"
+      HelpContext="0"
+      DisplayName="Input Options" />
+    <StringProperty
+      Name="RunDirectory"
+      HelpContext="0"
+      DisplayName="Run Directory"
+      Description="The directory you want to call the Perl script from. Default is the directory of the script itself." />
+    <StringProperty
+      Name="MoveFileFromPath1"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File From Path (1)"
+      Description="File you need moved" />
+    <StringProperty
+      Name="MoveFileToPath1"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File To Path (1)"
+      Description="Where you want the file moved to" />
+    <StringProperty
+      Name="MoveFileFromPath2"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File From Path (2)"
+      Description="Where you want the file moved from" />
+    <StringProperty
+      Name="MoveFileToPath2"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File To Path (2)"
+      Description="Where you want the file moved to" />
+    <StringProperty
+      Name="MoveFileFromPath3"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File From Path (3)"
+      Description="Where you want the file moved from" />
+    <StringProperty
+      Name="MoveFileToPath3"
+      Category="Moves"
+      HelpContext="0"
+      DisplayName="Move File To Path (3)"
+      Description="Where you want to move the file to" />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="Perl_3_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Perl_3_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="Perl_3_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Perl_3_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="Perl_3_Tool"
+    DisplayName="Perl 3 Tool" />
+  <FileExtension
+    Name="*.pl3"
+    ContentType="Perl_3_Tool" />
+  <ContentType
+    Name="Perl_3_Tool"
+    DisplayName="Perl 3 Tool"
+    ItemType="Perl_3_Tool" />
+  <Rule
+    Name="CommandLineTool"
+    PageTemplate="tool"
+    DisplayName="Command Line Tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="CommandLineTool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="CommandLineTool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <StringProperty
+      Name="Cmd"
+      HelpContext="0"
+      DisplayName="Command Line Tool"
+      Description="The command you wish to execute" />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="CommandLineToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^CommandLineToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="CommandLineToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^CommandLineToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="CommandLineTool"
+    DisplayName="Command Line Tool" />
+  <FileExtension
+    Name="*.Temp.tmp"
+    ContentType="CommandLineTool" />
+  <ContentType
+    Name="CommandLineTool"
+    DisplayName="Command Line Tool"
+    ItemType="CommandLineTool" />
+  <Rule
+    Name="Bison_Tool"
+    PageTemplate="tool"
+    DisplayName="Bison Tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="Bison_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="Bison_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <BoolProperty
+      Name="BisonDefines"
+      Category="Bison"
+      HelpContext="0"
+      DisplayName="Create Header"
+      Switch="-d" />
+    <BoolProperty
+      Name="BisonVerbose"
+      Category="Bison"
+      HelpContext="0"
+      DisplayName="Verbose"
+      Switch="-v" />
+    <BoolProperty
+      Name="BisonEmulateYacc"
+      Category="Bison"
+      HelpContext="0"
+      DisplayName="Emulate Yacc"
+      Switch="-y" />
+    <StringProperty
+      Name="BisonPrefix"
+      Category="Bison"
+      HelpContext="0"
+      DisplayName="Prefix"
+      Switch="-p[value]" />
+    <StringProperty
+      Name="BisonOutputPath"
+      Category="Bison"
+      HelpContext="0"
+      DisplayName="Output Path"
+      Switch="-o &quot;[value]&quot;" />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="Bison_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Bison_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="Bison_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Bison_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="Bison_Tool"
+    DisplayName="Bison Tool" />
+  <FileExtension
+    Name="*.y"
+    ContentType="Bison_Tool" />
+  <ContentType
+    Name="Bison_Tool"
+    DisplayName="Bison Tool"
+    ItemType="Bison_Tool" />
+  <Rule
+    Name="Flex_Tool"
+    PageTemplate="tool"
+    DisplayName="Flex Tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="Flex_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="Flex_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <BoolProperty
+      Name="FlexCaseInsensitive"
+      Category="Flex"
+      HelpContext="0"
+      DisplayName="Case Insensitive"
+      Switch="-i" />
+    <StringProperty
+      Name="FlexPrefix"
+      Category="Flex"
+      HelpContext="0"
+      DisplayName="Prefix"
+      Switch="-P[value]" />
+    <StringProperty
+      Name="FlexOutputPath"
+      Category="Flex"
+      HelpContext="0"
+      DisplayName="Output Path"
+      Switch="-o&quot;[value]&quot;" />
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="Flex_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Flex_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="Flex_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Flex_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="Flex_Tool"
+    DisplayName="Flex Tool" />
+  <FileExtension
+    Name="*.l"
+    ContentType="Flex_Tool" />
+  <ContentType
+    Name="Flex_Tool"
+    DisplayName="Flex Tool"
+    ItemType="Flex_Tool" />
+  <Rule
+    Name="Glib_Make_Enums_Tool"
+    PageTemplate="tool"
+    DisplayName="Glib Make Enums Tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="Glib_Make_Enums_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="Glib_Make_Enums_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <BoolProperty
+      Name="UseFileInputPath"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="Use File Input Path"
+      Description="Use $(InputPath) as the file list instead of a set of batched files." />
+    <StringProperty
+      Name="hFHead"
+      Category="Header"
+      Subcategory="Make Enums (Header)"
+      HelpContext="0"
+      DisplayName="Output File Header"
+      Description="Output file header. (--fhead)"
+      Switch="--fhead &quot;[value]&quot;" />
+    <StringProperty
+      Name="hFProd"
+      Category="Header"
+      Subcategory="Make Enums (Header)"
+      HelpContext="0"
+      DisplayName="Per Input File Production"
+      Description="Ran for every file listed. (--fprod)"
+      Switch="--fprod &quot;[value]&quot;" />
+    <StringProperty
+      Name="hFTail"
+      Category="Header"
+      Subcategory="Make Enums (Header)"
+      HelpContext="0"
+      DisplayName="Output File Trailer"
+      Description="Output file trailer. (--ftail)"
+      Switch="--ftail &quot;[value]&quot;" />
+    <StringProperty
+      Name="hEProd"
+      Category="Header"
+      Subcategory="Make Enums (Header)"
+      HelpContext="0"
+      DisplayName="Per Enum Text"
+      Description="Per enum text (produced prior to value itarations). (--eprod)"
+      Switch="--eprod &quot;[value]&quot;" />
+    <StringProperty
+      Name="hVHead"
+      Category="Header"
+      Subcategory="Make Enums (Header)"
+      HelpContext="0"
+      DisplayName="Value Header"
+      Description="Value header, produced before iterating over enum values. (--vhead)"
+      Switch="--vhead &quot;[value]&quot;" />
+    <StringProperty
+      Name="hVProd"
+      Category="Header"
+      Subcategory="Make Enums (Header)"
+      HelpContext="0"
+      DisplayName="Value Text"
+      Description="Value text, produced for each enum value. (--vprod)"
+      Switch="--vprod &quot;[value]&quot;" />
+    <StringProperty
+      Name="hVTail"
+      Category="Header"
+      Subcategory="Make Enums (Header)"
+      HelpContext="0"
+      DisplayName="Value Tail"
+      Description="Value tail, produced after iterating over enum values. (--vtail)"
+      Switch="--vtail &quot;[value]&quot;" />
+    <StringProperty
+      Name="hComments"
+      Category="Header"
+      Subcategory="Miscellaneous (Header)"
+      HelpContext="0"
+      DisplayName="Comments"
+      Description="Comment structure. (--comments)"
+      Switch="--comments &quot;[value]&quot;" />
+    <StringProperty
+      Name="hTemplate"
+      Category="Header"
+      Subcategory="Miscellaneous (Header)"
+      HelpContext="0"
+      DisplayName="Template"
+      Description="Template file. (--template)"
+      Switch="--template &quot;[value]&quot;" />
+    <StringProperty
+      Name="hOutputPath"
+      Category="Header"
+      Subcategory="Output (Header)"
+      HelpContext="0"
+      DisplayName="Output Path"
+      Description="The file to generate as a result of the script's output."
+      Switch="[value]" />
+    <StringProperty
+      Name="hCopyPath"
+      Category="Header"
+      Subcategory="Output (Header)"
+      HelpContext="0"
+      DisplayName="Copy Path"
+      Description="The path to copy this file to. Leave blank if you do not want to copy the file anywhere."
+      Switch="copy /y &quot;[hOutputPath]&quot; &quot;[value]&quot;" />
+    <StringProperty
+      Name="sFHead"
+      Category="Source"
+      Subcategory="Make Enums (Source)"
+      HelpContext="0"
+      DisplayName="Output File Header"
+      Description="Output file header. (--fhead)"
+      Switch="--fhead &quot;[value]&quot;" />
+    <StringProperty
+      Name="sFProd"
+      Category="Source"
+      Subcategory="Make Enums (Source)"
+      HelpContext="0"
+      DisplayName="Per Input File Production"
+      Description="Ran for every file listed. (--fprod)"
+      Switch="--fprod &quot;[value]&quot;" />
+    <StringProperty
+      Name="sFTail"
+      Category="Source"
+      Subcategory="Make Enums (Header)"
+      HelpContext="0"
+      DisplayName="Output File Trailer"
+      Description="Output file trailer. (--ftail)"
+      Switch="--ftail &quot;[value]&quot;" />
+    <StringProperty
+      Name="sEProd"
+      Category="Source"
+      Subcategory="Make Enums (Source)"
+      HelpContext="0"
+      DisplayName="Per Enum Text"
+      Description="Per enum text (produced prior to value itarations). (--eprod)"
+      Switch="--eprod &quot;[value]&quot;" />
+    <StringProperty
+      Name="sVHead"
+      Category="Source"
+      Subcategory="Make Enums (Source)"
+      HelpContext="0"
+      DisplayName="Value Header"
+      Description="Value header, produced before iterating over enum values. (--vhead)"
+      Switch="--vhead &quot;[value]&quot;" />
+    <StringProperty
+      Name="sVProd"
+      Category="Source"
+      Subcategory="Make Enums (Source)"
+      HelpContext="0"
+      DisplayName="Value Text"
+      Description="Value text, produced for each enum value. (--vprod)"
+      Switch="--vprod &quot;[value]&quot;" />
+    <StringProperty
+      Name="sVTail"
+      Category="Source"
+      Subcategory="Make Enums (Source)"
+      HelpContext="0"
+      DisplayName="Value Tail"
+      Description="Value tail, produced after iterating over enum values. (--vtail)"
+      Switch="--vtail &quot;[value]&quot;" />
+    <StringProperty
+      Name="sComments"
+      Category="Source"
+      Subcategory="Miscellaneous (Source)"
+      HelpContext="0"
+      DisplayName="Comments"
+      Description="Comment structure. (--comments)"
+      Switch="--comments &quot;[value]&quot;" />
+    <StringProperty
+      Name="sTemplate"
+      Category="Source"
+      Subcategory="Miscellaneous (Source)"
+      HelpContext="0"
+      DisplayName="Template"
+      Description="Template file. (--template)"
+      Switch="--template &quot;[value]&quot;" />
+    <StringProperty
+      Name="sOutputPath"
+      Category="Source"
+      Subcategory="Output (Source)"
+      HelpContext="0"
+      DisplayName="Output Path"
+      Description="The file to generate as a result of the script's output."
+      Switch="[value]" />
+    <StringProperty
+      Name="sCopyPath"
+      Category="Source"
+      Subcategory="Output (Source)"
+      HelpContext="0"
+      DisplayName="Copy Path"
+      Description="The path to copy this file to. Leave blank if you do not want to copy the file anywhere."
+      Switch="copy /y &quot;[sOutputPath]&quot; &quot;[value]&quot;" />
+    <StringProperty
+      Name="WorkingDir"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="Working Directory"
+      Description="The working directory from which to run this script."
+      Switch="[value]" />
+    <EnumProperty
+      Name="OutputFiles"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="Output Files"
+      Description="Whether to output just a header or just a source file or both.">
+      <EnumValue
+        Name="0"
+        DisplayName="Header File Only"
+        Switch="header" />
+      <EnumValue
+        Name="1"
+        DisplayName="Source File Only"
+        Switch="source" />
+      <EnumValue
+        Name="2"
+        DisplayName="Both Header and Source"
+        Switch="both" />
+    </EnumProperty>
+    <EnumProperty
+      Name="hOutputOperation"
+      Category="Header"
+      Subcategory="Output (Header)"
+      HelpContext="0"
+      DisplayName="Operation"
+      Description="What to do when the output is generated.">
+      <EnumValue
+        Name="0"
+        DisplayName="Nothing"
+        Switch="nothing" />
+      <EnumValue
+        Name="1"
+        DisplayName="Append"
+        Switch="append" />
+      <EnumValue
+        Name="2"
+        DisplayName="Overwrite"
+        Switch="overwrite" />
+    </EnumProperty>
+    <EnumProperty
+      Name="sOutputOperation"
+      Category="Source"
+      Subcategory="Output (Source)"
+      HelpContext="0"
+      DisplayName="Operation"
+      Description="What to do when the output is generated.">
+      <EnumValue
+        Name="0"
+        DisplayName="Nothing"
+        Switch="nothing" />
+      <EnumValue
+        Name="1"
+        DisplayName="Append"
+        Switch="append" />
+      <EnumValue
+        Name="2"
+        DisplayName="Overwrite"
+        Switch="overwrite" />
+    </EnumProperty>
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="Glib_Make_Enums_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Glib_Make_Enums_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="Glib_Make_Enums_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Glib_Make_Enums_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="Glib_Make_Enums_Tool"
+    DisplayName="Glib Make Enums Tool" />
+  <FileExtension
+    Name="*.mkenum.lst.txt"
+    ContentType="Glib_Make_Enums_Tool" />
+  <ContentType
+    Name="Glib_Make_Enums_Tool"
+    DisplayName="Glib Make Enums Tool"
+    ItemType="Glib_Make_Enums_Tool" />
+  <Rule
+    Name="Yasm_Tool"
+    PageTemplate="tool"
+    DisplayName="Yasm Tool"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="Yasm_Tool" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringListProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true"
+      Switch=" ">
+      <StringListProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="Yasm_Tool"
+          SourceType="Item" />
+      </StringListProperty.DataSource>
+    </StringListProperty>
+    <BoolProperty
+      Name="ForceStrict"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="Force Strict"
+      Description="Treat all sized operands as if 'strict' was used. (--force-strict)"
+      Switch="--force-strict" />
+    <BoolProperty
+      Name="ShowWarnings"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="Show Warnings"
+      Description="Inhibit warning messages. (-w)"
+      Switch="-w" />
+    <BoolProperty
+      Name="WarningsAsErrors"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="Treat Warnings as Errors"
+      Description="All warnings are treated as errors. (-Werror)"
+      Switch="-Werror" />
+    <BoolProperty
+      Name="PreprocessOnly"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="Preprocess Only"
+      Description="Stops assembly after the preprocessing stage. (-e, --preproc-only)"
+      Switch="-e" />
+    <StringProperty
+      Name="WorkingDir"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="Working Directory"
+      Description="The working directory from which to run this script."
+      Switch="[value]" />
+    <StringProperty
+      Name="OutputListFile"
+      Category="Output"
+      Subcategory="Output"
+      HelpContext="0"
+      DisplayName="List File"
+      Description="Name of list-file output. (-l, --lformat)"
+      Switch="-l &quot;[value]&quot;" />
+    <StringProperty
+      Name="OutputObjectFile"
+      Category="Output"
+      Subcategory="Output"
+      HelpContext="0"
+      DisplayName="Object File"
+      Description="Name of object-file output. (-o, --objfile)"
+      Switch="-o &quot;[value]&quot;" />
+    <StringProperty
+      Name="OutputMapFile"
+      Category="Output"
+      Subcategory="Output"
+      HelpContext="0"
+      DisplayName="Map File"
+      Description="Name of map-file output. (--mapfile)"
+      Switch="--mapfile=&quot;[value]&quot;" />
+    <StringListProperty
+      Name="IncludePaths"
+      HelpContext="0"
+      DisplayName="Include Paths"
+      Description="Add include paths. (-i, -I)"
+      Separator=";"
+      Switch="-I&quot;[value]&quot; " />
+    <StringListProperty
+      Name="MacroDefines"
+      HelpContext="0"
+      DisplayName="Define Macros"
+      Description="Pre-define a macro. (-d, -D)"
+      Separator=";"
+      Switch="-D [value] " />
+    <StringProperty
+      Name="PreincludeFile"
+      HelpContext="0"
+      DisplayName="Pre-include File"
+      Description="Pre-include file. (-P)"
+      Switch="-P &quot;[value]&quot;" />
+    <StringListProperty
+      Name="MacroUndefines"
+      HelpContext="0"
+      DisplayName="Undefine Macros"
+      Description="Undefine macros. (-u, -U)"
+      Separator=";"
+      Switch="-U [value] " />
+    <StringProperty
+      Name="Prefix"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="Prefix"
+      Description="Prepend argument to name of all external symbols. (--prefix)"
+      Switch="--prefix=[value]" />
+    <StringProperty
+      Name="Suffix"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="Suffix"
+      Description="Append argument to name of all external symbols. (--suffix, --postfix)"
+      Switch="--suffix=[value]" />
+    <EnumProperty
+      Name="Architecture"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="Architecture"
+      Description="Processor's architecture. (-a)">
+      <EnumValue
+        Name="0"
+        DisplayName="x86, x86_64 (AMD64)"
+        Switch="-a x86" />
+      <EnumValue
+        Name="1"
+        DisplayName="LC-3b"
+        Switch="-a lc3b" />
+    </EnumProperty>
+    <EnumProperty
+      Name="Parser"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="Parser"
+      Description="Parse to use. (-p)">
+      <EnumValue
+        Name="0"
+        DisplayName="GNU AS (GAS)-compatible"
+        Switch="-p gas" />
+      <EnumValue
+        Name="1"
+        DisplayName="GNU AS (GNU)-compatible"
+        Switch="-p gnu" />
+      <EnumValue
+        Name="2"
+        DisplayName="NASM-compatible"
+        Switch="-p nasm" />
+    </EnumProperty>
+    <EnumProperty
+      Name="Preprocessor"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="Preprocessor"
+      Description="Preprocessor to use. (-r)">
+      <EnumValue
+        Name="0"
+        DisplayName="Real NASM"
+        Switch="-r nasm" />
+      <EnumValue
+        Name="1"
+        DisplayName="Disabled"
+        Switch="-r raw" />
+      <EnumValue
+        Name="2"
+        DisplayName="External C Preprocessor"
+        Switch="-r cpp" />
+    </EnumProperty>
+    <EnumProperty
+      Name="ObjectFormat"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="Object Format"
+      Description="Object format. (-f)">
+      <EnumValue
+        Name="0"
+        DisplayName="Trace"
+        Switch="-f dbg" />
+      <EnumValue
+        Name="1"
+        DisplayName="Flat Format Binary"
+        Switch="-f bin" />
+      <EnumValue
+        Name="2"
+        DisplayName="ELF"
+        Switch="-f elf" />
+      <EnumValue
+        Name="3"
+        DisplayName="ELF (32-bit)"
+        Switch="-f elf32" />
+      <EnumValue
+        Name="4"
+        DisplayName="ELF (64-bit)"
+        Switch="-f elf64" />
+      <EnumValue
+        Name="5"
+        DisplayName="COFF (DJGPP)"
+        Switch="-f coff" />
+      <EnumValue
+        Name="6"
+        DisplayName="Mac OS X ABI Mach-O File Format"
+        Switch="-f macho" />
+      <EnumValue
+        Name="7"
+        DisplayName="Mac OS X ABI Mach-O File Format (32-bit)"
+        Switch="-f macho32" />
+      <EnumValue
+        Name="8"
+        DisplayName="Mac OS X ABI Mach-O File Format (64-bit)"
+        Switch="-f macho64" />
+      <EnumValue
+        Name="9"
+        DisplayName="Relocatable Dynamic Object File Format (RDOFF) v2.0"
+        Switch="-f rdf" />
+      <EnumValue
+        Name="10"
+        DisplayName="Win32"
+        Switch="-f win32" />
+      <EnumValue
+        Name="11"
+        DisplayName="Win64"
+        Switch="-f win64" />
+      <EnumValue
+        Name="12"
+        DisplayName="Win64"
+        Switch="-f x64" />
+      <EnumValue
+        Name="13"
+        DisplayName="Extended Dynamic Object"
+        Switch="-f xdf" />
+    </EnumProperty>
+    <EnumProperty
+      Name="DebuggingFormat"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="Debugging Format"
+      Description="Debugging format. Default depends on the object format. (-g)">
+      <EnumValue
+        Name="0"
+        DisplayName="CodeView for VC8"
+        Switch="-g cv8" />
+      <EnumValue
+        Name="1"
+        DisplayName="DWARF2"
+        Switch="-g dwarf2" />
+      <EnumValue
+        Name="2"
+        DisplayName="None"
+        Switch="-g null" />
+      <EnumValue
+        Name="3"
+        DisplayName="Stabs"
+        Switch="-g stabs" />
+    </EnumProperty>
+    <EnumProperty
+      Name="ListFormat"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="List Format"
+      Description="List format. (-L)">
+      <EnumValue
+        Name="0"
+        DisplayName="NASM-style"
+        Switch="-L nasm" />
+    </EnumProperty>
+    <EnumProperty
+      Name="Machine"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="Machine"
+      Description="Machine. (-m)">
+      <EnumValue
+        Name="0"
+        DisplayName="IA-32 (x86)"
+        Switch="-m x86" />
+      <EnumValue
+        Name="1"
+        DisplayName="x86_64 (AMD64)"
+        Switch="-m amd64" />
+    </EnumProperty>
+    <EnumProperty
+      Name="MessageStyle"
+      Subcategory="General"
+      HelpContext="0"
+      DisplayName="Message Style"
+      Description="Error/warning message style (gnu or vc). (-X)">
+      <EnumValue
+        Name="0"
+        DisplayName="GNU"
+        Switch="-X gnu" />
+      <EnumValue
+        Name="1"
+        DisplayName="Visual C/C++"
+        Switch="-X vc" />
+    </EnumProperty>
+    <StringProperty
+      Name="CommandLineTemplate"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <DynamicEnumProperty
+      Name="Yasm_ToolBeforeTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Yasm_ToolBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="Yasm_ToolAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^Yasm_ToolAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <StringListProperty
+      Name="Outputs"
+      DisplayName="Outputs"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      IncludeInCommandLine="False"
+      Visible="false" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="Yasm_Tool"
+    DisplayName="Yasm Tool" />
+  <FileExtension
+    Name="*.tmp.asm"
+    ContentType="Yasm_Tool" />
+  <ContentType
+    Name="Yasm_Tool"
+    DisplayName="Yasm Tool"
+    ItemType="Yasm_Tool" />
+</ProjectSchemaDefinitions>

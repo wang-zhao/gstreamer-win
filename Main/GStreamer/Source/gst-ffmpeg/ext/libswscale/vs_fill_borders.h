@@ -1,0 +1,62 @@
+/*
+ * Image Scaling Functions
+ * Copyright (c) 2010 Sebastian Dröge <sebastian.droege@collabora.co.uk>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#ifndef __VS_FILL_BORDERS_H__
+#define __VS_FILL_BORDERS_H__
+
+#include <gst/video/video-format.h>
+
+#include <_stdint.h>
+typedef struct _FFVSImage FFVSImage;
+
+struct _FFVSImage {
+    uint8_t* real_pixels;
+    int real_width;
+    int real_height;
+    int border_left, border_right;
+    int border_top, border_bottom;
+    uint8_t* pixels;
+    int width;
+    int height;
+    int stride;
+};
+
+const guint8* get_black_for_format(GstVideoFormat format);
+void gst_video_scale_setup_vs_image(FFVSImage* image, GstVideoFormat format,
+                                    gint component, gint width, gint height, gint b_w, gint b_h, uint8_t* data);
+
+void vs_fill_borders_RGBA(const FFVSImage* dest, const uint8_t* val);
+void vs_fill_borders_RGB(const FFVSImage* dest, const uint8_t* val);
+void vs_fill_borders_YUYV(const FFVSImage* dest, const uint8_t* val);
+void vs_fill_borders_UYVY(const FFVSImage* dest, const uint8_t* val);
+void vs_fill_borders_Y(const FFVSImage* dest, const uint8_t* val);
+void vs_fill_borders_Y16(const FFVSImage* dest, const uint16_t val);
+void vs_fill_borders_RGB565(const FFVSImage* dest, const uint8_t* val);
+void vs_fill_borders_RGB555(const FFVSImage* dest, const uint8_t* val);
+void vs_fill_borders_AYUV64(const FFVSImage* dest, const uint8_t* val);
+
+#endif /* __VS_FILL_BORDERS_H__ */

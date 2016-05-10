@@ -1,0 +1,1545 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <PropertyPageSchema
+      Include="$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml" />
+    <AvailableItemName
+      Include="Header_Installer_Tool">
+      <Targets>_Header_Installer_Tool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="DotIn_Generator_Tool">
+      <Targets>_DotIn_Generator_Tool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="SED_Tool">
+      <Targets>_SED_Tool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="Pkg_Config_Tool">
+      <Targets>_Pkg_Config_Tool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="Pkg_Config_OAH_Dependencies_Tool">
+      <Targets>_Pkg_Config_OAH_Dependencies_Tool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="Symbols_Generator_Tool">
+      <Targets>_Symbols_Generator_Tool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="GObject_Marshaller_Generation_Tool">
+      <Targets>_GObject_Marshaller_Generation_Tool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="GObject_Enum_Generation_Tool">
+      <Targets>_GObject_Enum_Generation_Tool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="SDK_VSProps_Generation_Tool">
+      <Targets>_SDK_VSProps_Generation_Tool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="Copy_Tool">
+      <Targets>_Copy_Tool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="C_Preprocessor_Tool">
+      <Targets>_C_Preprocessor_Tool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="Perl_Tool">
+      <Targets>_Perl_Tool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="Perl_2_Tool">
+      <Targets>_Perl_2_Tool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="Perl_3_Tool">
+      <Targets>_Perl_3_Tool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="CommandLineTool">
+      <Targets>_CommandLineTool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="Bison_Tool">
+      <Targets>_Bison_Tool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="Flex_Tool">
+      <Targets>_Flex_Tool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="Glib_Make_Enums_Tool">
+      <Targets>_Glib_Make_Enums_Tool</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="Yasm_Tool">
+      <Targets>_Yasm_Tool</Targets>
+    </AvailableItemName>
+  </ItemGroup>
+  <UsingTask
+    TaskName="Header_Installer_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="DotIn_Generator_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="SED_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="Pkg_Config_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="Pkg_Config_OAH_Dependencies_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="Symbols_Generator_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="GObject_Marshaller_Generation_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="GObject_Enum_Generation_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="SDK_VSProps_Generation_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="Copy_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="C_Preprocessor_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="Perl_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="Perl_2_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="Perl_3_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="CommandLineTool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="Bison_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="Flex_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="Glib_Make_Enums_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="Yasm_Tool"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <Target
+    Name="_Header_Installer_Tool"
+    BeforeTargets="$(Header_Installer_ToolBeforeTargets)"
+    AfterTargets="$(Header_Installer_ToolAfterTargets)"
+    Condition="'@(Header_Installer_Tool)' != ''"
+    DependsOnTargets="$(Header_Installer_ToolDependsOn);ComputeHeader_Installer_ToolOutput"
+    Outputs="%(Header_Installer_Tool.Outputs)"
+    Inputs="%(Header_Installer_Tool.Identity);%(Header_Installer_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <Header_Installer_Tool
+        Remove="@(Header_Installer_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <Header_Installer_Tool_tlog
+        Include="%(Header_Installer_Tool.Outputs)"
+        Condition="'%(Header_Installer_Tool.Outputs)' != '' and '%(Header_Installer_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(Header_Installer_Tool, '|')</Source>
+      </Header_Installer_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(Header_Installer_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(Header_Installer_Tool_tlog)' != '' and '%(Header_Installer_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(Header_Installer_Tool_tlog.Source);@(Header_Installer_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <Header_Installer_Tool
+      Condition="'@(Header_Installer_Tool)' != '' and '%(Header_Installer_Tool.ExcludedFromBuild)' != 'true'"
+      ModuleName="%(Header_Installer_Tool.ModuleName)"
+	  CommandLineTemplate="%(Header_Installer_Tool.CommandLineTemplate)"
+      AdditionalOptions="%(Header_Installer_Tool.AdditionalOptions)"
+      Inputs="%(Header_Installer_Tool.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeHeader_Installer_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeHeader_Installer_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeHeader_Installer_ToolOutput"
+    Condition="'@(Header_Installer_Tool)' != ''">
+    <ItemGroup>
+      <Header_Installer_ToolDirsToMake
+        Condition="'@(Header_Installer_Tool)' != '' and '%(Header_Installer_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(Header_Installer_Tool.Outputs)" />
+      <Link
+        Include="%(Header_Installer_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(Header_Installer_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(Header_Installer_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(Header_Installer_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_DotIn_Generator_Tool"
+    BeforeTargets="$(DotIn_Generator_ToolBeforeTargets)"
+    AfterTargets="$(DotIn_Generator_ToolAfterTargets)"
+    Condition="'@(DotIn_Generator_Tool)' != ''"
+    DependsOnTargets="$(DotIn_Generator_ToolDependsOn);ComputeDotIn_Generator_ToolOutput"
+    Outputs="@(DotIn_Generator_Tool-&gt;Metadata('Outputs')-&gt;Distinct())"
+    Inputs="@(DotIn_Generator_Tool);%(DotIn_Generator_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <DotIn_Generator_Tool
+        Remove="@(DotIn_Generator_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <DotIn_Generator_Tool_tlog
+        Include="%(DotIn_Generator_Tool.Outputs)"
+        Condition="'%(DotIn_Generator_Tool.Outputs)' != '' and '%(DotIn_Generator_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(DotIn_Generator_Tool, '|')</Source>
+      </DotIn_Generator_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(DotIn_Generator_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(DotIn_Generator_Tool_tlog)' != '' and '%(DotIn_Generator_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(DotIn_Generator_Tool_tlog.Source);@(DotIn_Generator_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <DotIn_Generator_Tool
+      Condition="'@(DotIn_Generator_Tool)' != '' and '%(DotIn_Generator_Tool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(DotIn_Generator_Tool.CommandLineTemplate)"
+      UseCustomOutputPath="%(DotIn_Generator_Tool.UseCustomOutputPath)"
+      Substitute="%(DotIn_Generator_Tool.Substitute)"
+      SubDirOutput="%(DotIn_Generator_Tool.SubDirOutput)"
+      OutputFileName="%(DotIn_Generator_Tool.OutputFileName)"
+      CustomOutputPath="%(DotIn_Generator_Tool.CustomOutputPath)"
+      AdditionalOptions="%(DotIn_Generator_Tool.AdditionalOptions)"
+      Inputs="@(DotIn_Generator_Tool)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeDotIn_Generator_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeDotIn_Generator_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeDotIn_Generator_ToolOutput"
+    Condition="'@(DotIn_Generator_Tool)' != ''">
+    <ItemGroup>
+      <DotIn_Generator_ToolDirsToMake
+        Condition="'@(DotIn_Generator_Tool)' != '' and '%(DotIn_Generator_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(DotIn_Generator_Tool.Outputs)" />
+      <Link
+        Include="%(DotIn_Generator_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(DotIn_Generator_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(DotIn_Generator_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(DotIn_Generator_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_SED_Tool"
+    BeforeTargets="$(SED_ToolBeforeTargets)"
+    AfterTargets="$(SED_ToolAfterTargets)"
+    Condition="'@(SED_Tool)' != ''"
+    DependsOnTargets="$(SED_ToolDependsOn);ComputeSED_ToolOutput"
+    Outputs="@(SED_Tool-&gt;Metadata('Outputs')-&gt;Distinct())"
+    Inputs="@(SED_Tool);%(SED_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <SED_Tool
+        Remove="@(SED_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <SED_Tool_tlog
+        Include="%(SED_Tool.Outputs)"
+        Condition="'%(SED_Tool.Outputs)' != '' and '%(SED_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(SED_Tool, '|')</Source>
+      </SED_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(SED_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(SED_Tool_tlog)' != '' and '%(SED_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(SED_Tool_tlog.Source);@(SED_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <SED_Tool
+      Condition="'@(SED_Tool)' != '' and '%(SED_Tool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(SED_Tool.CommandLineTemplate)"
+      Expression="%(SED_Tool.Expression)"
+      OutputFilePath="%(SED_Tool.OutputFilePath)"
+      AdditionalOptions="%(SED_Tool.AdditionalOptions)"
+      Inputs="@(SED_Tool)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeSED_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeSED_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeSED_ToolOutput"
+    Condition="'@(SED_Tool)' != ''">
+    <ItemGroup>
+      <SED_ToolDirsToMake
+        Condition="'@(SED_Tool)' != '' and '%(SED_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(SED_Tool.Outputs)" />
+      <Link
+        Include="%(SED_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(SED_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(SED_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(SED_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_Pkg_Config_Tool"
+    BeforeTargets="$(Pkg_Config_ToolBeforeTargets)"
+    AfterTargets="$(Pkg_Config_ToolAfterTargets)"
+    Condition="'@(Pkg_Config_Tool)' != ''"
+    DependsOnTargets="$(Pkg_Config_ToolDependsOn);ComputePkg_Config_ToolOutput"
+    Outputs="%(Pkg_Config_Tool.Outputs)"
+    Inputs="%(Pkg_Config_Tool.Identity);%(Pkg_Config_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <Pkg_Config_Tool
+        Remove="@(Pkg_Config_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <Pkg_Config_Tool_tlog
+        Include="%(Pkg_Config_Tool.Outputs)"
+        Condition="'%(Pkg_Config_Tool.Outputs)' != '' and '%(Pkg_Config_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(Pkg_Config_Tool, '|')</Source>
+      </Pkg_Config_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(Pkg_Config_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(Pkg_Config_Tool_tlog)' != '' and '%(Pkg_Config_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(Pkg_Config_Tool_tlog.Source);@(Pkg_Config_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <Pkg_Config_Tool
+      Condition="'@(Pkg_Config_Tool)' != '' and '%(Pkg_Config_Tool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(Pkg_Config_Tool.CommandLineTemplate)"
+      AdditionalDeps="%(Pkg_Config_Tool.AdditionalDeps)"
+      AdditionalOptions="%(Pkg_Config_Tool.AdditionalOptions)"
+      Inputs="%(Pkg_Config_Tool.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputePkg_Config_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputePkg_Config_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputePkg_Config_ToolOutput"
+    Condition="'@(Pkg_Config_Tool)' != ''">
+    <ItemGroup>
+      <Pkg_Config_ToolDirsToMake
+        Condition="'@(Pkg_Config_Tool)' != '' and '%(Pkg_Config_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(Pkg_Config_Tool.Outputs)" />
+      <Link
+        Include="%(Pkg_Config_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(Pkg_Config_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(Pkg_Config_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(Pkg_Config_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_Pkg_Config_OAH_Dependencies_Tool"
+    BeforeTargets="$(Pkg_Config_OAH_Dependencies_ToolBeforeTargets)"
+    AfterTargets="$(Pkg_Config_OAH_Dependencies_ToolAfterTargets)"
+    Condition="'@(Pkg_Config_OAH_Dependencies_Tool)' != ''"
+    DependsOnTargets="$(Pkg_Config_OAH_Dependencies_ToolDependsOn);ComputePkg_Config_OAH_Dependencies_ToolOutput"
+    Outputs="%(Pkg_Config_OAH_Dependencies_Tool.Outputs)"
+    Inputs="%(Pkg_Config_OAH_Dependencies_Tool.Identity);%(Pkg_Config_OAH_Dependencies_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <Pkg_Config_OAH_Dependencies_Tool
+        Remove="@(Pkg_Config_OAH_Dependencies_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <Pkg_Config_OAH_Dependencies_Tool_tlog
+        Include="%(Pkg_Config_OAH_Dependencies_Tool.Outputs)"
+        Condition="'%(Pkg_Config_OAH_Dependencies_Tool.Outputs)' != '' and '%(Pkg_Config_OAH_Dependencies_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(Pkg_Config_OAH_Dependencies_Tool, '|')</Source>
+      </Pkg_Config_OAH_Dependencies_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(Pkg_Config_OAH_Dependencies_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(Pkg_Config_OAH_Dependencies_Tool_tlog)' != '' and '%(Pkg_Config_OAH_Dependencies_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(Pkg_Config_OAH_Dependencies_Tool_tlog.Source);@(Pkg_Config_OAH_Dependencies_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <Pkg_Config_OAH_Dependencies_Tool
+      Condition="'@(Pkg_Config_OAH_Dependencies_Tool)' != '' and '%(Pkg_Config_OAH_Dependencies_Tool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(Pkg_Config_OAH_Dependencies_Tool.CommandLineTemplate)"
+      AdditionalDeps="%(Pkg_Config_OAH_Dependencies_Tool.AdditionalDeps)"
+      AdditionalOptions="%(Pkg_Config_OAH_Dependencies_Tool.AdditionalOptions)"
+      Inputs="%(Pkg_Config_OAH_Dependencies_Tool.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputePkg_Config_OAH_Dependencies_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputePkg_Config_OAH_Dependencies_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputePkg_Config_OAH_Dependencies_ToolOutput"
+    Condition="'@(Pkg_Config_OAH_Dependencies_Tool)' != ''">
+    <ItemGroup>
+      <Pkg_Config_OAH_Dependencies_ToolDirsToMake
+        Condition="'@(Pkg_Config_OAH_Dependencies_Tool)' != '' and '%(Pkg_Config_OAH_Dependencies_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(Pkg_Config_OAH_Dependencies_Tool.Outputs)" />
+      <Link
+        Include="%(Pkg_Config_OAH_Dependencies_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(Pkg_Config_OAH_Dependencies_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(Pkg_Config_OAH_Dependencies_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(Pkg_Config_OAH_Dependencies_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_Symbols_Generator_Tool"
+    BeforeTargets="$(Symbols_Generator_ToolBeforeTargets)"
+    AfterTargets="$(Symbols_Generator_ToolAfterTargets)"
+    Condition="'@(Symbols_Generator_Tool)' != ''"
+    DependsOnTargets="$(Symbols_Generator_ToolDependsOn);ComputeSymbols_Generator_ToolOutput"
+    Outputs="%(Symbols_Generator_Tool.Outputs)"
+    Inputs="%(Symbols_Generator_Tool.Identity);%(Symbols_Generator_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <Symbols_Generator_Tool
+        Remove="@(Symbols_Generator_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <Symbols_Generator_Tool_tlog
+        Include="%(Symbols_Generator_Tool.Outputs)"
+        Condition="'%(Symbols_Generator_Tool.Outputs)' != '' and '%(Symbols_Generator_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(Symbols_Generator_Tool, '|')</Source>
+      </Symbols_Generator_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(Symbols_Generator_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(Symbols_Generator_Tool_tlog)' != '' and '%(Symbols_Generator_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(Symbols_Generator_Tool_tlog.Source);@(Symbols_Generator_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <Symbols_Generator_Tool
+      Condition="'@(Symbols_Generator_Tool)' != '' and '%(Symbols_Generator_Tool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(Symbols_Generator_Tool.CommandLineTemplate)"
+      PreprocessorDefinitions="%(Symbols_Generator_Tool.PreprocessorDefinitions)"
+      Substitute="%(Symbols_Generator_Tool.Substitute)"
+      AdditionalOptions="%(Symbols_Generator_Tool.AdditionalOptions)"
+      Inputs="%(Symbols_Generator_Tool.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeSymbols_Generator_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeSymbols_Generator_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeSymbols_Generator_ToolOutput"
+    Condition="'@(Symbols_Generator_Tool)' != ''">
+    <ItemGroup>
+      <Symbols_Generator_ToolDirsToMake
+        Condition="'@(Symbols_Generator_Tool)' != '' and '%(Symbols_Generator_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(Symbols_Generator_Tool.Outputs)" />
+      <Link
+        Include="%(Symbols_Generator_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(Symbols_Generator_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(Symbols_Generator_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(Symbols_Generator_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_GObject_Marshaller_Generation_Tool"
+    BeforeTargets="$(GObject_Marshaller_Generation_ToolBeforeTargets)"
+    AfterTargets="$(GObject_Marshaller_Generation_ToolAfterTargets)"
+    Condition="'@(GObject_Marshaller_Generation_Tool)' != ''"
+    DependsOnTargets="$(GObject_Marshaller_Generation_ToolDependsOn);ComputeGObject_Marshaller_Generation_ToolOutput"
+    Outputs="%(GObject_Marshaller_Generation_Tool.Outputs)"
+    Inputs="%(GObject_Marshaller_Generation_Tool.Identity);%(GObject_Marshaller_Generation_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <GObject_Marshaller_Generation_Tool
+        Remove="@(GObject_Marshaller_Generation_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <GObject_Marshaller_Generation_Tool_tlog
+        Include="%(GObject_Marshaller_Generation_Tool.Outputs)"
+        Condition="'%(GObject_Marshaller_Generation_Tool.Outputs)' != '' and '%(GObject_Marshaller_Generation_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(GObject_Marshaller_Generation_Tool, '|')</Source>
+      </GObject_Marshaller_Generation_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(GObject_Marshaller_Generation_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(GObject_Marshaller_Generation_Tool_tlog)' != '' and '%(GObject_Marshaller_Generation_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(GObject_Marshaller_Generation_Tool_tlog.Source);@(GObject_Marshaller_Generation_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <GObject_Marshaller_Generation_Tool
+      Condition="'@(GObject_Marshaller_Generation_Tool)' != '' and '%(GObject_Marshaller_Generation_Tool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(GObject_Marshaller_Generation_Tool.CommandLineTemplate)"
+      NoStdInc="%(GObject_Marshaller_Generation_Tool.NoStdInc)"
+      Internal="%(GObject_Marshaller_Generation_Tool.Internal)"
+      OutputSubdir="%(GObject_Marshaller_Generation_Tool.OutputSubdir)"
+      FunctionPrefix="%(GObject_Marshaller_Generation_Tool.FunctionPrefix)"
+      CopyHeaderPath="%(GObject_Marshaller_Generation_Tool.CopyHeaderPath)"
+      AdditionalOptions="%(GObject_Marshaller_Generation_Tool.AdditionalOptions)"
+      Inputs="%(GObject_Marshaller_Generation_Tool.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeGObject_Marshaller_Generation_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeGObject_Marshaller_Generation_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeGObject_Marshaller_Generation_ToolOutput"
+    Condition="'@(GObject_Marshaller_Generation_Tool)' != ''">
+    <ItemGroup>
+      <GObject_Marshaller_Generation_ToolDirsToMake
+        Condition="'@(GObject_Marshaller_Generation_Tool)' != '' and '%(GObject_Marshaller_Generation_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(GObject_Marshaller_Generation_Tool.Outputs)" />
+      <Link
+        Include="%(GObject_Marshaller_Generation_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(GObject_Marshaller_Generation_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(GObject_Marshaller_Generation_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(GObject_Marshaller_Generation_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_GObject_Enum_Generation_Tool"
+    BeforeTargets="$(GObject_Enum_Generation_ToolBeforeTargets)"
+    AfterTargets="$(GObject_Enum_Generation_ToolAfterTargets)"
+    Condition="'@(GObject_Enum_Generation_Tool)' != ''"
+    DependsOnTargets="$(GObject_Enum_Generation_ToolDependsOn);ComputeGObject_Enum_Generation_ToolOutput"
+    Outputs="%(GObject_Enum_Generation_Tool.Outputs)"
+    Inputs="%(GObject_Enum_Generation_Tool.Identity);%(GObject_Enum_Generation_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <GObject_Enum_Generation_Tool
+        Remove="@(GObject_Enum_Generation_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <GObject_Enum_Generation_Tool_tlog
+        Include="%(GObject_Enum_Generation_Tool.Outputs)"
+        Condition="'%(GObject_Enum_Generation_Tool.Outputs)' != '' and '%(GObject_Enum_Generation_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(GObject_Enum_Generation_Tool, '|')</Source>
+      </GObject_Enum_Generation_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(GObject_Enum_Generation_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(GObject_Enum_Generation_Tool_tlog)' != '' and '%(GObject_Enum_Generation_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(GObject_Enum_Generation_Tool_tlog.Source);@(GObject_Enum_Generation_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <GObject_Enum_Generation_Tool
+      Condition="'@(GObject_Enum_Generation_Tool)' != '' and '%(GObject_Enum_Generation_Tool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(GObject_Enum_Generation_Tool.CommandLineTemplate)"
+      InputHeaders="%(GObject_Enum_Generation_Tool.InputHeaders)"
+      OutputSubdir="%(GObject_Enum_Generation_Tool.OutputSubdir)"
+      InputHeaderDir="%(GObject_Enum_Generation_Tool.InputHeaderDir)"
+      AdditionalOptions="%(GObject_Enum_Generation_Tool.AdditionalOptions)"
+      Inputs="%(GObject_Enum_Generation_Tool.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeGObject_Enum_Generation_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeGObject_Enum_Generation_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeGObject_Enum_Generation_ToolOutput"
+    Condition="'@(GObject_Enum_Generation_Tool)' != ''">
+    <ItemGroup>
+      <GObject_Enum_Generation_ToolDirsToMake
+        Condition="'@(GObject_Enum_Generation_Tool)' != '' and '%(GObject_Enum_Generation_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(GObject_Enum_Generation_Tool.Outputs)" />
+      <Link
+        Include="%(GObject_Enum_Generation_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(GObject_Enum_Generation_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(GObject_Enum_Generation_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(GObject_Enum_Generation_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_SDK_VSProps_Generation_Tool"
+    BeforeTargets="$(SDK_VSProps_Generation_ToolBeforeTargets)"
+    AfterTargets="$(SDK_VSProps_Generation_ToolAfterTargets)"
+    Condition="'@(SDK_VSProps_Generation_Tool)' != ''"
+    DependsOnTargets="$(SDK_VSProps_Generation_ToolDependsOn);ComputeSDK_VSProps_Generation_ToolOutput"
+    Outputs="%(SDK_VSProps_Generation_Tool.Outputs)"
+    Inputs="%(SDK_VSProps_Generation_Tool.Identity);%(SDK_VSProps_Generation_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <SDK_VSProps_Generation_Tool
+        Remove="@(SDK_VSProps_Generation_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <SDK_VSProps_Generation_Tool_tlog
+        Include="%(SDK_VSProps_Generation_Tool.Outputs)"
+        Condition="'%(SDK_VSProps_Generation_Tool.Outputs)' != '' and '%(SDK_VSProps_Generation_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(SDK_VSProps_Generation_Tool, '|')</Source>
+      </SDK_VSProps_Generation_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(SDK_VSProps_Generation_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(SDK_VSProps_Generation_Tool_tlog)' != '' and '%(SDK_VSProps_Generation_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(SDK_VSProps_Generation_Tool_tlog.Source);@(SDK_VSProps_Generation_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <SDK_VSProps_Generation_Tool
+      Condition="'@(SDK_VSProps_Generation_Tool)' != '' and '%(SDK_VSProps_Generation_Tool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(SDK_VSProps_Generation_Tool.CommandLineTemplate)"
+      OutputFilenameBase="%(SDK_VSProps_Generation_Tool.OutputFilenameBase)"
+      AdditionalOptions="%(SDK_VSProps_Generation_Tool.AdditionalOptions)"
+      Inputs="%(SDK_VSProps_Generation_Tool.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeSDK_VSProps_Generation_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeSDK_VSProps_Generation_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeSDK_VSProps_Generation_ToolOutput"
+    Condition="'@(SDK_VSProps_Generation_Tool)' != ''">
+    <ItemGroup>
+      <SDK_VSProps_Generation_ToolDirsToMake
+        Condition="'@(SDK_VSProps_Generation_Tool)' != '' and '%(SDK_VSProps_Generation_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(SDK_VSProps_Generation_Tool.Outputs)" />
+      <Link
+        Include="%(SDK_VSProps_Generation_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(SDK_VSProps_Generation_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(SDK_VSProps_Generation_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(SDK_VSProps_Generation_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_Copy_Tool"
+    BeforeTargets="$(Copy_ToolBeforeTargets)"
+    AfterTargets="$(Copy_ToolAfterTargets)"
+    Condition="'@(Copy_Tool)' != ''"
+    DependsOnTargets="$(Copy_ToolDependsOn);ComputeCopy_ToolOutput"
+    Outputs="@(Copy_Tool-&gt;Metadata('Outputs')-&gt;Distinct())"
+    Inputs="@(Copy_Tool);%(Copy_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <Copy_Tool
+        Remove="@(Copy_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <Copy_Tool_tlog
+        Include="%(Copy_Tool.Outputs)"
+        Condition="'%(Copy_Tool.Outputs)' != '' and '%(Copy_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(Copy_Tool, '|')</Source>
+      </Copy_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(Copy_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(Copy_Tool_tlog)' != '' and '%(Copy_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(Copy_Tool_tlog.Source);@(Copy_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <Copy_Tool
+      Condition="'@(Copy_Tool)' != '' and '%(Copy_Tool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(Copy_Tool.CommandLineTemplate)"
+      ForceOverwrite="%(Copy_Tool.ForceOverwrite)"
+      DestinationPath="%(Copy_Tool.DestinationPath)"
+      AdditionalOptions="%(Copy_Tool.AdditionalOptions)"
+      Inputs="@(Copy_Tool)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeCopy_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeCopy_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeCopy_ToolOutput"
+    Condition="'@(Copy_Tool)' != ''">
+    <ItemGroup>
+      <Copy_ToolDirsToMake
+        Condition="'@(Copy_Tool)' != '' and '%(Copy_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(Copy_Tool.Outputs)" />
+      <Link
+        Include="%(Copy_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(Copy_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(Copy_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(Copy_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_C_Preprocessor_Tool"
+    BeforeTargets="$(C_Preprocessor_ToolBeforeTargets)"
+    AfterTargets="$(C_Preprocessor_ToolAfterTargets)"
+    Condition="'@(C_Preprocessor_Tool)' != ''"
+    DependsOnTargets="$(C_Preprocessor_ToolDependsOn);ComputeC_Preprocessor_ToolOutput"
+    Outputs="@(C_Preprocessor_Tool-&gt;Metadata('Outputs')-&gt;Distinct())"
+    Inputs="@(C_Preprocessor_Tool);%(C_Preprocessor_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <C_Preprocessor_Tool
+        Remove="@(C_Preprocessor_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <C_Preprocessor_Tool_tlog
+        Include="%(C_Preprocessor_Tool.Outputs)"
+        Condition="'%(C_Preprocessor_Tool.Outputs)' != '' and '%(C_Preprocessor_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(C_Preprocessor_Tool, '|')</Source>
+      </C_Preprocessor_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(C_Preprocessor_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(C_Preprocessor_Tool_tlog)' != '' and '%(C_Preprocessor_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(C_Preprocessor_Tool_tlog.Source);@(C_Preprocessor_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <C_Preprocessor_Tool
+      Condition="'@(C_Preprocessor_Tool)' != '' and '%(C_Preprocessor_Tool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(C_Preprocessor_Tool.CommandLineTemplate)"
+      PreprocessorOptions="%(C_Preprocessor_Tool.PreprocessorOptions)"
+      PreprocessorOutputPath="%(C_Preprocessor_Tool.PreprocessorOutputPath)"
+      AdditionalOptions="%(C_Preprocessor_Tool.AdditionalOptions)"
+      Inputs="@(C_Preprocessor_Tool)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeC_Preprocessor_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeC_Preprocessor_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeC_Preprocessor_ToolOutput"
+    Condition="'@(C_Preprocessor_Tool)' != ''">
+    <ItemGroup>
+      <C_Preprocessor_ToolDirsToMake
+        Condition="'@(C_Preprocessor_Tool)' != '' and '%(C_Preprocessor_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(C_Preprocessor_Tool.Outputs)" />
+      <Link
+        Include="%(C_Preprocessor_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(C_Preprocessor_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(C_Preprocessor_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(C_Preprocessor_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_Perl_Tool"
+    BeforeTargets="$(Perl_ToolBeforeTargets)"
+    AfterTargets="$(Perl_ToolAfterTargets)"
+    Condition="'@(Perl_Tool)' != ''"
+    DependsOnTargets="$(Perl_ToolDependsOn);ComputePerl_ToolOutput"
+    Outputs="%(Perl_Tool.Outputs)"
+    Inputs="%(Perl_Tool.Identity);%(Perl_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <Perl_Tool
+        Remove="@(Perl_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <Perl_Tool_tlog
+        Include="%(Perl_Tool.Outputs)"
+        Condition="'%(Perl_Tool.Outputs)' != '' and '%(Perl_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(Perl_Tool, '|')</Source>
+      </Perl_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(Perl_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(Perl_Tool_tlog)' != '' and '%(Perl_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(Perl_Tool_tlog.Source);@(Perl_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <Perl_Tool
+      Condition="'@(Perl_Tool)' != '' and '%(Perl_Tool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(Perl_Tool.CommandLineTemplate)"
+      PerlOptions="%(Perl_Tool.PerlOptions)"
+      PerlOutputPath="%(Perl_Tool.PerlOutputPath)"
+      InputOptions="%(Perl_Tool.InputOptions)"
+      RunDirectory="%(Perl_Tool.RunDirectory)"
+      MoveFileFromPath1="%(Perl_Tool.MoveFileFromPath1)"
+      MoveFileToPath1="%(Perl_Tool.MoveFileToPath1)"
+      MoveFileFromPath2="%(Perl_Tool.MoveFileFromPath2)"
+      MoveFileToPath2="%(Perl_Tool.MoveFileToPath2)"
+      MoveFileFromPath3="%(Perl_Tool.MoveFileFromPath3)"
+      MoveFileToPath3="%(Perl_Tool.MoveFileToPath3)"
+      AdditionalOptions="%(Perl_Tool.AdditionalOptions)"
+      Inputs="%(Perl_Tool.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputePerl_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputePerl_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputePerl_ToolOutput"
+    Condition="'@(Perl_Tool)' != ''">
+    <ItemGroup>
+      <Perl_ToolDirsToMake
+        Condition="'@(Perl_Tool)' != '' and '%(Perl_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(Perl_Tool.Outputs)" />
+      <Link
+        Include="%(Perl_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(Perl_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(Perl_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(Perl_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_Perl_2_Tool"
+    BeforeTargets="$(Perl_2_ToolBeforeTargets)"
+    AfterTargets="$(Perl_2_ToolAfterTargets)"
+    Condition="'@(Perl_2_Tool)' != ''"
+    DependsOnTargets="$(Perl_2_ToolDependsOn);ComputePerl_2_ToolOutput"
+    Outputs="%(Perl_2_Tool.Outputs)"
+    Inputs="%(Perl_2_Tool.Identity);%(Perl_2_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <Perl_2_Tool
+        Remove="@(Perl_2_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <Perl_2_Tool_tlog
+        Include="%(Perl_2_Tool.Outputs)"
+        Condition="'%(Perl_2_Tool.Outputs)' != '' and '%(Perl_2_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(Perl_2_Tool, '|')</Source>
+      </Perl_2_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(Perl_2_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(Perl_2_Tool_tlog)' != '' and '%(Perl_2_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(Perl_2_Tool_tlog.Source);@(Perl_2_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <Perl_2_Tool
+      Condition="'@(Perl_2_Tool)' != '' and '%(Perl_2_Tool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(Perl_2_Tool.CommandLineTemplate)"
+      PerlOptions="%(Perl_2_Tool.PerlOptions)"
+      PerlOutputPath="%(Perl_2_Tool.PerlOutputPath)"
+      InputOptions="%(Perl_2_Tool.InputOptions)"
+      RunDirectory="%(Perl_2_Tool.RunDirectory)"
+      MoveFileFromPath1="%(Perl_2_Tool.MoveFileFromPath1)"
+      MoveFileToPath1="%(Perl_2_Tool.MoveFileToPath1)"
+      MoveFileFromPath2="%(Perl_2_Tool.MoveFileFromPath2)"
+      MoveFileToPath2="%(Perl_2_Tool.MoveFileToPath2)"
+      MoveFileFromPath3="%(Perl_2_Tool.MoveFileFromPath3)"
+      MoveFileToPath3="%(Perl_2_Tool.MoveFileToPath3)"
+      AdditionalOptions="%(Perl_2_Tool.AdditionalOptions)"
+      Inputs="%(Perl_2_Tool.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputePerl_2_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputePerl_2_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputePerl_2_ToolOutput"
+    Condition="'@(Perl_2_Tool)' != ''">
+    <ItemGroup>
+      <Perl_2_ToolDirsToMake
+        Condition="'@(Perl_2_Tool)' != '' and '%(Perl_2_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(Perl_2_Tool.Outputs)" />
+      <Link
+        Include="%(Perl_2_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(Perl_2_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(Perl_2_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(Perl_2_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_Perl_3_Tool"
+    BeforeTargets="$(Perl_3_ToolBeforeTargets)"
+    AfterTargets="$(Perl_3_ToolAfterTargets)"
+    Condition="'@(Perl_3_Tool)' != ''"
+    DependsOnTargets="$(Perl_3_ToolDependsOn);ComputePerl_3_ToolOutput"
+    Outputs="%(Perl_3_Tool.Outputs)"
+    Inputs="%(Perl_3_Tool.Identity);%(Perl_3_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <Perl_3_Tool
+        Remove="@(Perl_3_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <Perl_3_Tool_tlog
+        Include="%(Perl_3_Tool.Outputs)"
+        Condition="'%(Perl_3_Tool.Outputs)' != '' and '%(Perl_3_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(Perl_3_Tool, '|')</Source>
+      </Perl_3_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(Perl_3_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(Perl_3_Tool_tlog)' != '' and '%(Perl_3_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(Perl_3_Tool_tlog.Source);@(Perl_3_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <Perl_3_Tool
+      Condition="'@(Perl_3_Tool)' != '' and '%(Perl_3_Tool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(Perl_3_Tool.CommandLineTemplate)"
+      PerlOptions="%(Perl_3_Tool.PerlOptions)"
+      PerlOutputPath="%(Perl_3_Tool.PerlOutputPath)"
+      InputOptions="%(Perl_3_Tool.InputOptions)"
+      RunDirectory="%(Perl_3_Tool.RunDirectory)"
+      MoveFileFromPath1="%(Perl_3_Tool.MoveFileFromPath1)"
+      MoveFileToPath1="%(Perl_3_Tool.MoveFileToPath1)"
+      MoveFileFromPath2="%(Perl_3_Tool.MoveFileFromPath2)"
+      MoveFileToPath2="%(Perl_3_Tool.MoveFileToPath2)"
+      MoveFileFromPath3="%(Perl_3_Tool.MoveFileFromPath3)"
+      MoveFileToPath3="%(Perl_3_Tool.MoveFileToPath3)"
+      AdditionalOptions="%(Perl_3_Tool.AdditionalOptions)"
+      Inputs="%(Perl_3_Tool.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputePerl_3_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputePerl_3_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputePerl_3_ToolOutput"
+    Condition="'@(Perl_3_Tool)' != ''">
+    <ItemGroup>
+      <Perl_3_ToolDirsToMake
+        Condition="'@(Perl_3_Tool)' != '' and '%(Perl_3_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(Perl_3_Tool.Outputs)" />
+      <Link
+        Include="%(Perl_3_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(Perl_3_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(Perl_3_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(Perl_3_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_CommandLineTool"
+    BeforeTargets="$(CommandLineToolBeforeTargets)"
+    AfterTargets="$(CommandLineToolAfterTargets)"
+    Condition="'@(CommandLineTool)' != ''"
+    DependsOnTargets="$(CommandLineToolDependsOn);ComputeCommandLineToolOutput"
+    Outputs="@(CommandLineTool-&gt;Metadata('Outputs')-&gt;Distinct())"
+    Inputs="@(CommandLineTool);%(CommandLineTool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <CommandLineTool
+        Remove="@(CommandLineTool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <CommandLineTool_tlog
+        Include="%(CommandLineTool.Outputs)"
+        Condition="'%(CommandLineTool.Outputs)' != '' and '%(CommandLineTool.ExcludedFromBuild)' != 'true'">
+        <Source>@(CommandLineTool, '|')</Source>
+      </CommandLineTool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(CommandLineTool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(CommandLineTool_tlog)' != '' and '%(CommandLineTool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(CommandLineTool_tlog.Source);@(CommandLineTool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <CommandLineTool
+      Condition="'@(CommandLineTool)' != '' and '%(CommandLineTool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(CommandLineTool.CommandLineTemplate)"
+      Cmd="%(CommandLineTool.Cmd)"
+      AdditionalOptions="%(CommandLineTool.AdditionalOptions)"
+      Inputs="@(CommandLineTool)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeCommandLineToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeCommandLineToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeCommandLineToolOutput"
+    Condition="'@(CommandLineTool)' != ''">
+    <ItemGroup>
+      <CommandLineToolDirsToMake
+        Condition="'@(CommandLineTool)' != '' and '%(CommandLineTool.ExcludedFromBuild)' != 'true'"
+        Include="%(CommandLineTool.Outputs)" />
+      <Link
+        Include="%(CommandLineToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(CommandLineToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(CommandLineToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(CommandLineToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_Bison_Tool"
+    BeforeTargets="$(Bison_ToolBeforeTargets)"
+    AfterTargets="$(Bison_ToolAfterTargets)"
+    Condition="'@(Bison_Tool)' != ''"
+    DependsOnTargets="$(Bison_ToolDependsOn);ComputeBison_ToolOutput"
+    Outputs="%(Bison_Tool.Outputs)"
+    Inputs="%(Bison_Tool.Identity);%(Bison_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <Bison_Tool
+        Remove="@(Bison_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <Bison_Tool_tlog
+        Include="%(Bison_Tool.Outputs)"
+        Condition="'%(Bison_Tool.Outputs)' != '' and '%(Bison_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(Bison_Tool, '|')</Source>
+      </Bison_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(Bison_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(Bison_Tool_tlog)' != '' and '%(Bison_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(Bison_Tool_tlog.Source);@(Bison_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <Bison_Tool
+      Condition="'@(Bison_Tool)' != '' and '%(Bison_Tool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(Bison_Tool.CommandLineTemplate)"
+      BisonDefines="%(Bison_Tool.BisonDefines)"
+      BisonVerbose="%(Bison_Tool.BisonVerbose)"
+      BisonEmulateYacc="%(Bison_Tool.BisonEmulateYacc)"
+      BisonPrefix="%(Bison_Tool.BisonPrefix)"
+      BisonOutputPath="%(Bison_Tool.BisonOutputPath)"
+      AdditionalOptions="%(Bison_Tool.AdditionalOptions)"
+      Inputs="%(Bison_Tool.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeBison_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeBison_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeBison_ToolOutput"
+    Condition="'@(Bison_Tool)' != ''">
+    <ItemGroup>
+      <Bison_ToolDirsToMake
+        Condition="'@(Bison_Tool)' != '' and '%(Bison_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(Bison_Tool.Outputs)" />
+      <Link
+        Include="%(Bison_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(Bison_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(Bison_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(Bison_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_Flex_Tool"
+    BeforeTargets="$(Flex_ToolBeforeTargets)"
+    AfterTargets="$(Flex_ToolAfterTargets)"
+    Condition="'@(Flex_Tool)' != ''"
+    DependsOnTargets="$(Flex_ToolDependsOn);ComputeFlex_ToolOutput"
+    Outputs="%(Flex_Tool.Outputs)"
+    Inputs="%(Flex_Tool.Identity);%(Flex_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <Flex_Tool
+        Remove="@(Flex_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <Flex_Tool_tlog
+        Include="%(Flex_Tool.Outputs)"
+        Condition="'%(Flex_Tool.Outputs)' != '' and '%(Flex_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(Flex_Tool, '|')</Source>
+      </Flex_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(Flex_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(Flex_Tool_tlog)' != '' and '%(Flex_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(Flex_Tool_tlog.Source);@(Flex_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <Flex_Tool
+      Condition="'@(Flex_Tool)' != '' and '%(Flex_Tool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(Flex_Tool.CommandLineTemplate)"
+      FlexCaseInsensitive="%(Flex_Tool.FlexCaseInsensitive)"
+      FlexPrefix="%(Flex_Tool.FlexPrefix)"
+      FlexOutputPath="%(Flex_Tool.FlexOutputPath)"
+      AdditionalOptions="%(Flex_Tool.AdditionalOptions)"
+      Inputs="%(Flex_Tool.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeFlex_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeFlex_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeFlex_ToolOutput"
+    Condition="'@(Flex_Tool)' != ''">
+    <ItemGroup>
+      <Flex_ToolDirsToMake
+        Condition="'@(Flex_Tool)' != '' and '%(Flex_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(Flex_Tool.Outputs)" />
+      <Link
+        Include="%(Flex_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(Flex_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(Flex_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(Flex_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_Glib_Make_Enums_Tool"
+    BeforeTargets="$(Glib_Make_Enums_ToolBeforeTargets)"
+    AfterTargets="$(Glib_Make_Enums_ToolAfterTargets)"
+    Condition="'@(Glib_Make_Enums_Tool)' != ''"
+    DependsOnTargets="$(Glib_Make_Enums_ToolDependsOn);ComputeGlib_Make_Enums_ToolOutput"
+    Outputs="@(Glib_Make_Enums_Tool-&gt;'%(Outputs)')"
+    Inputs="@(Glib_Make_Enums_Tool);%(Glib_Make_Enums_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <Glib_Make_Enums_Tool
+        Remove="@(Glib_Make_Enums_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <Glib_Make_Enums_Tool_tlog
+        Include="%(Glib_Make_Enums_Tool.Outputs)"
+        Condition="'%(Glib_Make_Enums_Tool.Outputs)' != '' and '%(Glib_Make_Enums_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(Glib_Make_Enums_Tool, '|')</Source>
+      </Glib_Make_Enums_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(Glib_Make_Enums_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(Glib_Make_Enums_Tool_tlog)' != '' and '%(Glib_Make_Enums_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(Glib_Make_Enums_Tool_tlog.Source);@(Glib_Make_Enums_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <Glib_Make_Enums_Tool
+      Condition="'@(Glib_Make_Enums_Tool)' != '' and '%(Glib_Make_Enums_Tool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(Glib_Make_Enums_Tool.CommandLineTemplate)"
+      UseFileInputPath="%(Glib_Make_Enums_Tool.UseFileInputPath)"
+      hFHead="%(Glib_Make_Enums_Tool.hFHead)"
+      hFProd="%(Glib_Make_Enums_Tool.hFProd)"
+      hFTail="%(Glib_Make_Enums_Tool.hFTail)"
+      hEProd="%(Glib_Make_Enums_Tool.hEProd)"
+      hVHead="%(Glib_Make_Enums_Tool.hVHead)"
+      hVProd="%(Glib_Make_Enums_Tool.hVProd)"
+      hVTail="%(Glib_Make_Enums_Tool.hVTail)"
+      hComments="%(Glib_Make_Enums_Tool.hComments)"
+      hTemplate="%(Glib_Make_Enums_Tool.hTemplate)"
+      hOutputPath="%(Glib_Make_Enums_Tool.hOutputPath)"
+      hCopyPath="%(Glib_Make_Enums_Tool.hCopyPath)"
+      sFHead="%(Glib_Make_Enums_Tool.sFHead)"
+      sFProd="%(Glib_Make_Enums_Tool.sFProd)"
+      sFTail="%(Glib_Make_Enums_Tool.sFTail)"
+      sEProd="%(Glib_Make_Enums_Tool.sEProd)"
+      sVHead="%(Glib_Make_Enums_Tool.sVHead)"
+      sVProd="%(Glib_Make_Enums_Tool.sVProd)"
+      sVTail="%(Glib_Make_Enums_Tool.sVTail)"
+      sComments="%(Glib_Make_Enums_Tool.sComments)"
+      sTemplate="%(Glib_Make_Enums_Tool.sTemplate)"
+      sOutputPath="%(Glib_Make_Enums_Tool.sOutputPath)"
+      sCopyPath="%(Glib_Make_Enums_Tool.sCopyPath)"
+      WorkingDir="%(Glib_Make_Enums_Tool.WorkingDir)"
+      OutputFiles="%(Glib_Make_Enums_Tool.OutputFiles)"
+      hOutputOperation="%(Glib_Make_Enums_Tool.hOutputOperation)"
+      sOutputOperation="%(Glib_Make_Enums_Tool.sOutputOperation)"
+      AdditionalOptions="%(Glib_Make_Enums_Tool.AdditionalOptions)"
+      Inputs="@(Glib_Make_Enums_Tool)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeGlib_Make_Enums_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeGlib_Make_Enums_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeGlib_Make_Enums_ToolOutput"
+    Condition="'@(Glib_Make_Enums_Tool)' != ''">
+    <ItemGroup>
+      <Glib_Make_Enums_ToolDirsToMake
+        Condition="'@(Glib_Make_Enums_Tool)' != '' and '%(Glib_Make_Enums_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(Glib_Make_Enums_Tool.Outputs)" />
+      <Link
+        Include="%(Glib_Make_Enums_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(Glib_Make_Enums_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(Glib_Make_Enums_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(Glib_Make_Enums_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_Yasm_Tool"
+    BeforeTargets="$(Yasm_ToolBeforeTargets)"
+    AfterTargets="$(Yasm_ToolAfterTargets)"
+    Condition="'@(Yasm_Tool)' != ''"
+    DependsOnTargets="$(Yasm_ToolDependsOn);ComputeYasm_ToolOutput"
+    Outputs="@(Yasm_Tool-&gt;Metadata('Outputs')-&gt;Distinct())"
+    Inputs="@(Yasm_Tool);%(Yasm_Tool.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <Yasm_Tool
+        Remove="@(Yasm_Tool)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <Yasm_Tool_tlog
+        Include="%(Yasm_Tool.Outputs)"
+        Condition="'%(Yasm_Tool.Outputs)' != '' and '%(Yasm_Tool.ExcludedFromBuild)' != 'true'">
+        <Source>@(Yasm_Tool, '|')</Source>
+      </Yasm_Tool_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(Yasm_Tool.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(Yasm_Tool_tlog)' != '' and '%(Yasm_Tool_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(Yasm_Tool_tlog.Source);@(Yasm_Tool_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <Yasm_Tool
+      Condition="'@(Yasm_Tool)' != '' and '%(Yasm_Tool.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(Yasm_Tool.CommandLineTemplate)"
+      ForceStrict="%(Yasm_Tool.ForceStrict)"
+      ShowWarnings="%(Yasm_Tool.ShowWarnings)"
+      WarningsAsErrors="%(Yasm_Tool.WarningsAsErrors)"
+      PreprocessOnly="%(Yasm_Tool.PreprocessOnly)"
+      WorkingDir="%(Yasm_Tool.WorkingDir)"
+      OutputListFile="%(Yasm_Tool.OutputListFile)"
+      OutputObjectFile="%(Yasm_Tool.OutputObjectFile)"
+      OutputMapFile="%(Yasm_Tool.OutputMapFile)"
+      IncludePaths="%(Yasm_Tool.IncludePaths)"
+      MacroDefines="%(Yasm_Tool.MacroDefines)"
+      PreincludeFile="%(Yasm_Tool.PreincludeFile)"
+      MacroUndefines="%(Yasm_Tool.MacroUndefines)"
+      Prefix="%(Yasm_Tool.Prefix)"
+      Suffix="%(Yasm_Tool.Suffix)"
+      Architecture="%(Yasm_Tool.Architecture)"
+      Parser="%(Yasm_Tool.Parser)"
+      Preprocessor="%(Yasm_Tool.Preprocessor)"
+      ObjectFormat="%(Yasm_Tool.ObjectFormat)"
+      DebuggingFormat="%(Yasm_Tool.DebuggingFormat)"
+      ListFormat="%(Yasm_Tool.ListFormat)"
+      Machine="%(Yasm_Tool.Machine)"
+      MessageStyle="%(Yasm_Tool.MessageStyle)"
+      AdditionalOptions="%(Yasm_Tool.AdditionalOptions)"
+      Inputs="@(Yasm_Tool)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeYasm_ToolOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeYasm_ToolOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeYasm_ToolOutput"
+    Condition="'@(Yasm_Tool)' != ''">
+    <ItemGroup>
+      <Yasm_ToolDirsToMake
+        Condition="'@(Yasm_Tool)' != '' and '%(Yasm_Tool.ExcludedFromBuild)' != 'true'"
+        Include="%(Yasm_Tool.Outputs)" />
+      <Link
+        Include="%(Yasm_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(Yasm_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(Yasm_ToolDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(Yasm_ToolDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+</Project>

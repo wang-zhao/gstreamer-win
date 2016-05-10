@@ -1,0 +1,3 @@
+LIBRARY "win32_regex.dll"
+EXPORTS
+    win32_regex_match

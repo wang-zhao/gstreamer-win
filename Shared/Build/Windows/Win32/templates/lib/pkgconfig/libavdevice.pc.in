@@ -1,0 +1,14 @@
+prefix=@SHARED_BUILD_DIR@
+exec_prefix=${prefix}
+libdir=@SHARED_BUILD_DIR@/lib
+includedir=@SHARED_BUILD_DIR@/include
+
+Name: libavdevice
+Description: FFmpeg device handling library
+Version: 52.2.2
+Requires: 
+Requires.private: libavformat = 52.84.0
+Conflicts:
+Libs: -L${libdir} -lavdevice 
+Libs.private: -lavicap32 -lws2_32 -lavifil32 -lm -lbz2 -lz -lpsapi
+Cflags: -I${includedir}

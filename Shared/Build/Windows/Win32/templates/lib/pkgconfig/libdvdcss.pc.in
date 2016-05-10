@@ -1,0 +1,10 @@
+prefix=@SHARED_BUILD_DIR@
+exec_prefix=${prefix}
+libdir=@SHARED_BUILD_DIR@/lib
+includedir=@SHARED_BUILD_DIR@/include
+
+Name: libdvdcss
+Description: DVD access and decryption library.
+Version: 1.2.10
+Libs: -L${libdir} -ldvdcss
+Cflags: -I{includedir} -I${includedir}/libdvdcss

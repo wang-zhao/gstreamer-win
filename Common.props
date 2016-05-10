@@ -1,0 +1,695 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup
+    Condition="'$(Header_Installer_ToolBeforeTargets)' == '' and '$(Header_Installer_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <Header_Installer_ToolBeforeTargets>Midl</Header_Installer_ToolBeforeTargets>
+    <Header_Installer_ToolAfterTargets>CustomBuild</Header_Installer_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Header_Installer_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(Header_Installer_ToolDependsOn)</Header_Installer_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Header_Installer_Tool>
+	  <ModuleName                  Condition="'%(Header_Installer_Tool.ModuleName)'               == ''">.</ModuleName>
+      <CommandLineTemplate>if not exist $(OutDir)include\[ModuleName]\NUL mkdir "$(OutDir)include\[ModuleName]"
+copy /B /Y [AdditionalOptions] "%(FullPath)" "$(OutDir)include\[ModuleName]"</CommandLineTemplate>
+      <Outputs>$(OutDir)include\%(ModuleName)\%(Filename)%(Extension)</Outputs>
+      <ExecutionDescription>Installing %(Filename)%(Extension) to $(OutDir)include\[ModuleName]</ExecutionDescription>
+    </Header_Installer_Tool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(DotIn_Generator_ToolBeforeTargets)' == '' and '$(DotIn_Generator_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <DotIn_Generator_ToolBeforeTargets>Midl</DotIn_Generator_ToolBeforeTargets>
+    <DotIn_Generator_ToolAfterTargets>CustomBuild</DotIn_Generator_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DotIn_Generator_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(DotIn_Generator_ToolDependsOn)</DotIn_Generator_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <DotIn_Generator_Tool>
+      <UseCustomOutputPath>False</UseCustomOutputPath>
+      <SubDirOutput>.</SubDirOutput>
+      <OutputFileName>%(Filename)</OutputFileName>
+      <CommandLineTemplate>@echo off
+
+set PATH=$(SolutionDir)Tools;%PATH%
+
+if /I "[UseCustomOutputPath]" == "true" goto doCustom
+goto doDefault
+
+:doDefault
+if not exist $(IntDir)[SubDirOutput]\NUL mkdir "$(IntDir)[SubDirOutput]"
+sed.exe [Substitute] [AdditionalOptions] "%(FullPath)" &gt; "$(IntDir)[SubDirOutput]\[OutputFileName]"
+goto done
+
+:doCustom
+call ensurePath.bat "%(CustomOutputPath)"
+sed.exe [Substitute] [AdditionalOptions] "%(FullPath)" &gt; "%(CustomOutputPath)"
+goto done
+
+:done</CommandLineTemplate>
+      <Outputs>$(IntDir)[SubDirOutput]\[OutputFileName]</Outputs>
+      <ExecutionDescription>Generating [OutputFileName]</ExecutionDescription>
+    </DotIn_Generator_Tool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(SED_ToolBeforeTargets)' == '' and '$(SED_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <SED_ToolBeforeTargets>Midl</SED_ToolBeforeTargets>
+    <SED_ToolAfterTargets>CustomBuild</SED_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SED_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(SED_ToolDependsOn)</SED_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <SED_Tool>
+      <OutputFilePath>$(IntDir)%(Filename)%(Extension)</OutputFilePath>
+      <CommandLineTemplate>set PATH=$(SolutionDir)Tools;%PATH%
+sed.exe [AllOptions] [AdditionalOptions] %(FullPath) &gt; [OutputFilePath]</CommandLineTemplate>
+      <Outputs>[OutputFilePath]</Outputs>
+      <ExecutionDescription>Generating [OutputFilePath]</ExecutionDescription>
+    </SED_Tool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(Pkg_Config_ToolBeforeTargets)' == '' and '$(Pkg_Config_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <Pkg_Config_ToolBeforeTargets>Midl</Pkg_Config_ToolBeforeTargets>
+    <Pkg_Config_ToolAfterTargets>CustomBuild</Pkg_Config_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Pkg_Config_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(Pkg_Config_ToolDependsOn)</Pkg_Config_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Pkg_Config_Tool>
+      <CommandLineTemplate>set PATH=$(SolutionDir)Tools;%PATH%
+
+pkg-config --requires-only --print-errors "$(IntDir)%(Filename).pc" &gt; "$(IntDir)%(Filename).deps"
+set /P OAH_DEPS=&lt; "$(IntDir)%(Filename).deps"
+del /F /Q "$(IntDir)%(Filename).deps"
+if /I "%(AdditionalDeps)" NEQ "" set OAH_DEPS=%OAH_DEPS% %(AdditionalDeps)
+if /I "%OAH_DEPS%" == "" goto empty
+pkg-config --exists %OAH_DEPS% || exit 1
+pkg-config --cflags --msvc-syntax %OAH_DEPS% &gt; "$(IntDir)%(Filename).inc"
+pkg-config --libs --msvc-syntax %OAH_DEPS% &gt; "$(IntDir)%(Filename).libs"
+goto done
+:empty
+echo. &gt; "$(IntDir)%(Filename).inc"
+echo. &gt; "$(IntDir)%(Filename).libs"
+:done
+copy /B /Y "$(IntDir)%(Filename).pc" "$(OutDir)lib\pkgconfig"</CommandLineTemplate>
+      <Outputs>$(IntDir)%(Filename).inc;$(IntDir)%(Filename).libs;$(OutDir)lib\pkgconfig\%(Filename)%(Extension)</Outputs>
+      <ExecutionDescription>Generating pkg-config file and building internal dependencies ('Requires:') used by the compiler (cl.exe) and linker (link.exe)</ExecutionDescription>
+    </Pkg_Config_Tool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(Pkg_Config_OAH_Dependencies_ToolBeforeTargets)' == '' and '$(Pkg_Config_OAH_Dependencies_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <Pkg_Config_OAH_Dependencies_ToolBeforeTargets>Midl</Pkg_Config_OAH_Dependencies_ToolBeforeTargets>
+    <Pkg_Config_OAH_Dependencies_ToolAfterTargets>CustomBuild</Pkg_Config_OAH_Dependencies_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Pkg_Config_OAH_Dependencies_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(Pkg_Config_OAH_Dependencies_ToolDependsOn)</Pkg_Config_OAH_Dependencies_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Pkg_Config_OAH_Dependencies_Tool>
+      <CommandLineTemplate>set PATH=$(SolutionDir)Tools;%PATH%
+
+set /P OAH_DEPS=&lt; "%(FullPath)"
+set OAH_DEPS=%OAH_DEPS% %(AdditionalDeps)
+
+if /I "%OAH_DEPS%" == " " goto empty
+pkg-config --exists %OAH_DEPS% || exit 1
+pkg-config --cflags --msvc-syntax %OAH_DEPS% &gt; "$(IntDir)%(Filename).inc"
+pkg-config --libs --msvc-syntax %OAH_DEPS% &gt; "$(IntDir)%(Filename).libs"
+goto end
+:empty
+echo. &gt; "$(IntDir)%(Filename).inc"
+echo. &gt; "$(IntDir)%(Filename).libs"
+exit 0
+:end</CommandLineTemplate>
+      <Outputs>$(IntDir)%(Filename).inc;$(IntDir)%(Filename).libs</Outputs>
+      <ExecutionDescription>Setting up internal dependencies to be used by the compiler (cl.exe) and linker (link.exe) from %(Filename)%(Extension)</ExecutionDescription>
+    </Pkg_Config_OAH_Dependencies_Tool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(Symbols_Generator_ToolBeforeTargets)' == '' and '$(Symbols_Generator_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <Symbols_Generator_ToolBeforeTargets>Midl</Symbols_Generator_ToolBeforeTargets>
+    <Symbols_Generator_ToolAfterTargets>CustomBuild</Symbols_Generator_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Symbols_Generator_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(Symbols_Generator_ToolDependsOn)</Symbols_Generator_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Symbols_Generator_Tool>
+      <CommandLineTemplate>set PATH=$(SolutionDir)Tools;%PATH%
+
+echo EXPORTS &gt; "$(IntDir)%(Filename).def"
+
+if "%(Substitute)" == "" (
+cl.exe /nologo /EP [PreprocessorDefinitions] "%(FullPath)" &gt;&gt; "$(IntDir)%(Filename).def"
+) else (
+cl.exe /nologo /EP [PreprocessorDefinitions] "%(FullPath)" | sed.exe [Substitute] [AdditionalOptions] &gt;&gt; "$(IntDir)%(Filename).def"
+)</CommandLineTemplate>
+      <Outputs>$(IntDir)%(Filename).def</Outputs>
+      <ExecutionDescription>Generating %(Filename).def</ExecutionDescription>
+    </Symbols_Generator_Tool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(GObject_Marshaller_Generation_ToolBeforeTargets)' == '' and '$(GObject_Marshaller_Generation_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <GObject_Marshaller_Generation_ToolBeforeTargets>Midl</GObject_Marshaller_Generation_ToolBeforeTargets>
+    <GObject_Marshaller_Generation_ToolAfterTargets>CustomBuild</GObject_Marshaller_Generation_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GObject_Marshaller_Generation_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(GObject_Marshaller_Generation_ToolDependsOn)</GObject_Marshaller_Generation_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <GObject_Marshaller_Generation_Tool>
+      <NoStdInc>False</NoStdInc>
+      <Internal>False</Internal>
+      <FunctionPrefix>foo_marshal</FunctionPrefix>
+      <CommandLineTemplate>set OUTBIN=$(OutDir)bin
+set SHAREDBIN=$(SolutionDir)Shared\Build\Windows\$(Platform)\bin
+set PATH=%OUTBIN%;%SHAREDBIN%;$(SolutionDir)Tools;%PATH%
+
+if not exist $(IntDir)%(OutputSubdir)\NUL mkdir $(IntDir)%(OutputSubdir)
+
+set GEN_MARSHAL=glib-genmarshal.exe
+
+REM if not exist "%GEN_MARSHAL%" goto ERROR
+
+"%GEN_MARSHAL%" --header --skip-source [NoStdInc] [FunctionPrefix] [inputs] &gt; "$(IntDir)%(OutputSubdir)\%(Filename).h.tmp"
+if %ERRORLEVEL% neq 0 goto ERROR
+"%GEN_MARSHAL%" --body --skip-source [NoStdInc] [Internal] [FunctionPrefix] [inputs] &gt; "$(IntDir)%(OutputSubdir)\%(Filename).c.tmp"
+if %ERRORLEVEL% neq 0 goto ERROR
+
+if exist $(IntDir)%(OutputSubdir)\%(Filename).h del $(IntDir)%(OutputSubdir)\%(Filename).h
+if exist $(IntDir)%(OutputSubdir)\%(Filename).c del $(IntDir)%(OutputSubdir)\%(Filename).c
+
+ren "$(IntDir)%(OutputSubdir)\%(Filename).h.tmp" "%(Filename).h"
+if %ERRORLEVEL% neq 0 goto ERROR
+ren "$(IntDir)%(OutputSubdir)\%(Filename).c.tmp" "%(Filename).c"
+if %ERRORLEVEL% neq 0 goto ERROR
+
+echo badgers &gt; "$(IntDir)%(Filename)%(Extension).stamp"
+if %ERRORLEVEL% neq 0 goto ERROR
+
+if not "%(CopyHeaderPath)" == "" copy /y "$(IntDir)%(OutputSubdir)\%(Filename).h" "%(CopyHeaderPath)"
+
+exit 0
+
+:ERROR
+del $(IntDir)%(OutputSubdir)\%(Filename).h.tmp 2&gt;NUL
+del $(IntDir)%(OutputSubdir)\%(Filename).c.tmp 2&gt;NUL
+del $(IntDir)%(OutputSubdir)\%(Filename).h 2&gt;NUL
+del $(IntDir)%(OutputSubdir)\%(Filename).c 2&gt;NUL
+del $(IntDir)%(Filename)%(Extension).stamp 2&gt;NUL
+exit 1
+</CommandLineTemplate>
+      <Outputs>$(IntDir)%(Filename)%(Extension).stamp</Outputs>
+      <ExecutionDescription>Generating GObject marshaller code</ExecutionDescription>
+    </GObject_Marshaller_Generation_Tool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(GObject_Enum_Generation_ToolBeforeTargets)' == '' and '$(GObject_Enum_Generation_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <GObject_Enum_Generation_ToolBeforeTargets>Midl</GObject_Enum_Generation_ToolBeforeTargets>
+    <GObject_Enum_Generation_ToolAfterTargets>CustomBuild</GObject_Enum_Generation_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GObject_Enum_Generation_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(GObject_Enum_Generation_ToolDependsOn)</GObject_Enum_Generation_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <GObject_Enum_Generation_Tool>
+      <CommandLineTemplate>set OUTBIN=$(OutDir)bin
+set SHAREDBIN=$(SolutionDir)Shared\Build\Windows\$(Platform)\bin
+set PATH=%OUTBIN%;%SHAREDBIN%;$(SolutionDir)Tools;%PATH%
+
+pkg-config --variable=prefix glib-2.0 &gt; "$(IntDir)mkenum.path"
+set /P GMKE_PATH=&lt;"$(IntDir)mkenum.path"
+del /F /Q "$(IntDir)mkenum.path"
+
+set GMKE_PREV_DIR=%CD%
+cd %(InputHeaderDir)
+if not exist $(IntDir)%(OutputSubdir)\NUL mkdir "$(IntDir)%(OutputSubdir)"
+set GMKE_INPUT_HEADERS=%(InputHeaders)
+%GMKE_PATH%\bin\$(GLibMkEnumsPL) --template "%(FullPath)" --flist-env-var GMKE_INPUT_HEADERS &gt; "$(IntDir)%(OutputSubdir)\%(Filename)"
+cd %GMKE_PREV_DIR%</CommandLineTemplate>
+      <Outputs>$(IntDir)%(OutputSubdir)\%(Filename)</Outputs>
+      <ExecutionDescription>Generating GObject enum code from template %(Filename)%(Extension)</ExecutionDescription>
+      <AdditionalDependencies>%(InputFiles)</AdditionalDependencies>
+    </GObject_Enum_Generation_Tool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(SDK_VSProps_Generation_ToolBeforeTargets)' == '' and '$(SDK_VSProps_Generation_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <SDK_VSProps_Generation_ToolBeforeTargets>Midl</SDK_VSProps_Generation_ToolBeforeTargets>
+    <SDK_VSProps_Generation_ToolAfterTargets>CustomBuild</SDK_VSProps_Generation_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SDK_VSProps_Generation_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(SDK_VSProps_Generation_ToolDependsOn)</SDK_VSProps_Generation_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <SDK_VSProps_Generation_Tool>
+      <CommandLineTemplate>set PATH=$(SolutionDir)Tools;%PATH%
+
+if not exist $(OutDir)vsprops\NUL mkdir $(OutDir)vsprops
+
+$(Sed) -e "s,@GLIB_API_VERSION@,$(GLibApiVersion),g" -e "s,@GSTREAMER_API_VERSION@,$(GStreamerApiVersion),g" "%(FullPath)" &gt; "$(OutDir)vsprops\[OutputFilenameBase].vsprops.tmp"
+if %ERRORLEVEL% neq 0 goto ERROR
+
+if exist "$(OutDir)vsprops\[OutputFilenameBase].vsprops" del "$(OutDir)vsprops\[OutputFilenameBase].vsprops"
+ren "$(OutDir)vsprops\[OutputFilenameBase].vsprops.tmp" "[OutputFilenameBase].vsprops"
+if %ERRORLEVEL% neq 0 goto ERROR
+
+echo mushroom &gt; "$(IntDir)%(Filename)%(Extension).stamp"
+if %ERRORLEVEL% neq 0 goto ERROR
+exit 0
+
+:ERROR
+del "$(OutDir)vsprops\[OutputFilenameBase].vsprops.tmp" 2&gt;NUL
+del "$(OutDir)vsprops\[OutputFilenameBase].vsprops" 2&gt;NUL
+del "$(IntDir)%(Filename)%(Extension).stamp" 2&gt;NUL
+exit 1
+</CommandLineTemplate>
+      <Outputs>$(IntDir)%(Filename)%(Extension).stamp</Outputs>
+      <ExecutionDescription>Generating [OutputFilenameBase].vsprops</ExecutionDescription>
+    </SDK_VSProps_Generation_Tool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(Copy_ToolBeforeTargets)' == '' and '$(Copy_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <Copy_ToolBeforeTargets>Midl</Copy_ToolBeforeTargets>
+    <Copy_ToolAfterTargets>CustomBuild</Copy_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Copy_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(Copy_ToolDependsOn)</Copy_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Copy_Tool>
+      <ForceOverwrite>False</ForceOverwrite>
+      <DestinationPath>%(FullPath)</DestinationPath>
+      <CommandLineTemplate>set PATH=$(SolutionDir)Tools;%PATH%
+
+if /I "[ForceOverwrite]" == "true" goto doForceCopy
+if exist "[DestinationPath]" goto done
+
+:doCopy
+copy [AdditionalOptions] "%(FullPath)" "[DestinationPath]"
+goto done
+
+:doForceCopy
+copy /Y [AdditionalOptions] "%(FullPath)" "[DestinationPath]"
+goto done
+
+:done</CommandLineTemplate>
+      <Outputs>[DestinationPath]</Outputs>
+      <ExecutionDescription>Copying %(FullPath)</ExecutionDescription>
+    </Copy_Tool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(C_Preprocessor_ToolBeforeTargets)' == '' and '$(C_Preprocessor_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <C_Preprocessor_ToolBeforeTargets>Midl</C_Preprocessor_ToolBeforeTargets>
+    <C_Preprocessor_ToolAfterTargets>CustomBuild</C_Preprocessor_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <C_Preprocessor_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(C_Preprocessor_ToolDependsOn)</C_Preprocessor_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <C_Preprocessor_Tool>
+      <PreprocessorOptions>/I .</PreprocessorOptions>
+      <PreprocessorOutputPath>output.txt</PreprocessorOutputPath>
+      <CommandLineTemplate>set PATH=$(SolutionDir)Tools;%PATH%
+
+cl /EP /nologo [PreprocessorOptions] "%(FullPath)" &gt; "[PreprocessorOutputPath]"</CommandLineTemplate>
+      <Outputs>output.txt</Outputs>
+      <ExecutionDescription>Runs a file through the C Preprocessor</ExecutionDescription>
+    </C_Preprocessor_Tool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(Perl_ToolBeforeTargets)' == '' and '$(Perl_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <Perl_ToolBeforeTargets>Midl</Perl_ToolBeforeTargets>
+    <Perl_ToolAfterTargets>CustomBuild</Perl_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Perl_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(Perl_ToolDependsOn)</Perl_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Perl_Tool>
+      <PerlOutputPath>$(IntDir)%(Filename).asm</PerlOutputPath>
+      <CommandLineTemplate>set PATH=$(SolutionDir)Tools;%PATH%
+
+call dir.bat "%(FullPath)"
+call ensurePath.bat "[PerlOutputPath]"
+
+set RUN_DIR="%(RunDirectory)"
+if %RUN_DIR% == "" set RUN_DIR="%MY_FILE_DIR% "
+
+cd /d %RUN_DIR%
+perl %(PerlOptions) "%(FullPath)" %(InputOptions) &gt; "[PerlOutputPath]"
+
+REM Do moves if we have any defined
+
+if not "%(MoveFileFromPath1)" == "" (
+    if not "%(MoveFileToPath1)" == "" (
+        if exist "%(MoveFileFromPath1)" move /Y "%(MoveFileFromPath1)" "%(MoveFileToPath1)"
+    )
+)
+
+if not "%(MoveFileFromPath2)" == "" (
+    if not "%(MoveFileToPath2)" == "" (
+        if exist "%(MoveFileFromPath2)" move /Y "%(MoveFileFromPath2)" "%(MoveFileToPath2)"
+    )
+)
+
+if not "%(MoveFileFromPath3)" == "" (
+    if not "%(MoveFileToPath3)" == "" (
+        if exist "%(MoveFileFromPath3)" move /Y "%(MoveFileFromPath3)" "%(MoveFileToPath3)"
+    )
+)</CommandLineTemplate>
+      <Outputs>%(Filename).asm</Outputs>
+    </Perl_Tool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(Perl_2_ToolBeforeTargets)' == '' and '$(Perl_2_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <Perl_2_ToolBeforeTargets>Midl</Perl_2_ToolBeforeTargets>
+    <Perl_2_ToolAfterTargets>CustomBuild</Perl_2_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Perl_2_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(Perl_2_ToolDependsOn)</Perl_2_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Perl_2_Tool>
+      <PerlOutputPath>$(IntDir)%(Filename).asm</PerlOutputPath>
+      <CommandLineTemplate>set PATH=$(SolutionDir)Tools;%PATH%
+
+call dir.bat "%(FullPath)"
+call ensurePath.bat "[PerlOutputPath]"
+
+set RUN_DIR="%(RunDirectory)"
+if %RUN_DIR% == "" set RUN_DIR="%MY_FILE_DIR% "
+
+cd /d %RUN_DIR%
+perl %(PerlOptions) "%(FullPath)" %(InputOptions) &gt; "[PerlOutputPath]"
+
+REM Do moves if we have any defined
+
+if not "%(MoveFileFromPath1)" == "" (
+    if not "%(MoveFileToPath1)" == "" (
+        if exist "%(MoveFileFromPath1)" move /Y "%(MoveFileFromPath1)" "%(MoveFileToPath1)"
+    )
+)
+
+if not "%(MoveFileFromPath2)" == "" (
+    if not "%(MoveFileToPath2)" == "" (
+        if exist "%(MoveFileFromPath2)" move /Y "%(MoveFileFromPath2)" "%(MoveFileToPath2)"
+    )
+)
+
+if not "%(MoveFileFromPath3)" == "" (
+    if not "%(MoveFileToPath3)" == "" (
+        if exist "%(MoveFileFromPath3)" move /Y "%(MoveFileFromPath3)" "%(MoveFileToPath3)"
+    )
+)</CommandLineTemplate>
+      <Outputs>%(Filename).asm</Outputs>
+    </Perl_2_Tool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(Perl_3_ToolBeforeTargets)' == '' and '$(Perl_3_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <Perl_3_ToolBeforeTargets>Midl</Perl_3_ToolBeforeTargets>
+    <Perl_3_ToolAfterTargets>CustomBuild</Perl_3_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Perl_3_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(Perl_3_ToolDependsOn)</Perl_3_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Perl_3_Tool>
+      <PerlOutputPath>$(IntDir)%(Filename).asm</PerlOutputPath>
+      <CommandLineTemplate>set PATH=$(SolutionDir)Tools;%PATH%
+
+call dir.bat "%(FullPath)"
+call ensurePath.bat "[PerlOutputPath]"
+
+set RUN_DIR="%(RunDirectory)"
+if %RUN_DIR% == "" set RUN_DIR="%MY_FILE_DIR% "
+
+cd /d %RUN_DIR%
+perl %(PerlOptions) "%(FullPath)" %(InputOptions) &gt; "[PerlOutputPath]"
+
+REM Do moves if we have any defined
+
+if not "%(MoveFileFromPath1)" == "" (
+    if not "%(MoveFileToPath1)" == "" (
+        if exist "%(MoveFileFromPath1)" move /Y "%(MoveFileFromPath1)" "%(MoveFileToPath1)"
+    )
+)
+
+if not "%(MoveFileFromPath2)" == "" (
+    if not "%(MoveFileToPath2)" == "" (
+        if exist "%(MoveFileFromPath2)" move /Y "%(MoveFileFromPath2)" "%(MoveFileToPath2)"
+    )
+)
+
+if not "%(MoveFileFromPath3)" == "" (
+    if not "%(MoveFileToPath3)" == "" (
+        if exist "%(MoveFileFromPath3)" move /Y "%(MoveFileFromPath3)" "%(MoveFileToPath3)"
+    )
+)</CommandLineTemplate>
+      <Outputs>%(Filename).asm</Outputs>
+    </Perl_3_Tool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(CommandLineToolBeforeTargets)' == '' and '$(CommandLineToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <CommandLineToolBeforeTargets>Midl</CommandLineToolBeforeTargets>
+    <CommandLineToolAfterTargets>CustomBuild</CommandLineToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CommandLineToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(CommandLineToolDependsOn)</CommandLineToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <CommandLineTool>
+      <CommandLineTemplate>@echo off
+set PATH=$(SolutionDir)Tools;%PATH%
+
+%(Cmd)</CommandLineTemplate>
+      <Outputs>output.txt</Outputs>
+    </CommandLineTool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(Bison_ToolBeforeTargets)' == '' and '$(Bison_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <Bison_ToolBeforeTargets>Midl</Bison_ToolBeforeTargets>
+    <Bison_ToolAfterTargets>CustomBuild</Bison_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Bison_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(Bison_ToolDependsOn)</Bison_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Bison_Tool>
+      <BisonDefines>true</BisonDefines>
+      <BisonVerbose>true</BisonVerbose>
+      <BisonEmulateYacc>False</BisonEmulateYacc>
+      <BisonOutputPath>$(IntDir)%(Filename).tab.c</BisonOutputPath>
+      <CommandLineTemplate>set OUTBIN=$(OutDir)bin
+set SHAREDBIN=$(SolutionDir)Shared\Build\Windows\$(Platform)\bin
+set PATH=%OUTBIN%;%SHAREDBIN%;$(SolutionDir)Tools;%PATH%
+
+set BISON_PKGDATADIR=$(SolutionDir)Tools\share\bison
+
+bison [BisonEmulateYacc] [BisonDefines] [BisonVerbose] [BisonPrefix] "%(FullPath)" [BisonOutputPath]</CommandLineTemplate>
+      <Outputs>%(Filename).tab.c %(Filename).tab.h</Outputs>
+    </Bison_Tool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(Flex_ToolBeforeTargets)' == '' and '$(Flex_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <Flex_ToolBeforeTargets>Midl</Flex_ToolBeforeTargets>
+    <Flex_ToolAfterTargets>CustomBuild</Flex_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Flex_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(Flex_ToolDependsOn)</Flex_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Flex_Tool>
+      <FlexCaseInsensitive>False</FlexCaseInsensitive>
+      <FlexPrefix>yy</FlexPrefix>
+      <FlexOutputPath>$(IntDir)lex.%(Filename).c</FlexOutputPath>
+      <CommandLineTemplate>set OUTBIN=$(OutDir)bin
+set SHAREDBIN=$(SolutionDir)Shared\Build\Windows\$(Platform)\bin
+set PATH=%OUTBIN%;%SHAREDBIN%;$(SolutionDir)Tools;%PATH%
+
+set BISON_PKGDATADIR=$(SolutionDir)Tools\share\bison
+set M4PATH=%BISON_PKGDATADIR%
+
+flex [FlexCaseInsensitive] [FlexPrefix] [FlexOutputPath] "%(FullPath)"</CommandLineTemplate>
+      <Outputs>lex.%(Filename).c</Outputs>
+    </Flex_Tool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(Glib_Make_Enums_ToolBeforeTargets)' == '' and '$(Glib_Make_Enums_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <Glib_Make_Enums_ToolBeforeTargets>Midl</Glib_Make_Enums_ToolBeforeTargets>
+    <Glib_Make_Enums_ToolAfterTargets>CustomBuild</Glib_Make_Enums_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Glib_Make_Enums_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(Glib_Make_Enums_ToolDependsOn)</Glib_Make_Enums_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Glib_Make_Enums_Tool>
+      <UseFileInputPath>true</UseFileInputPath>
+      <WorkingDir>$(ProjectDir)</WorkingDir>
+      <OutputFiles>2</OutputFiles>
+      <hOutputOperation>0</hOutputOperation>
+      <sOutputOperation>0</sOutputOperation>
+      <CommandLineTemplate>set OUTBIN=$(OutDir)bin
+set SHAREDBIN=$(SolutionDir)Shared\Build\Windows\$(Platform)\bin
+set PATH=%OUTBIN%;%SHAREDBIN%;$(SolutionDir)Tools;%PATH%
+
+if exist "%OUTBIN%\glib-mkenums.pl" (
+    set MKENUMS=%OUTBIN%\glib-mkenums.pl
+)
+if exist "%OUTBIN%\glib-mkenums" (
+    set MKENUMS=%OUTBIN%\glib-mkenums
+)
+if exist "%SHAREDBIN%\glib-mkenums.pl" (
+    set MKENUMS=%SHAREDBIN%\glib-mkenums.pl
+)
+if exist "%SHAREDBIN%\glib-mkenums" (
+    set MKENUMS=%SHAREDBIN%\glib-mkenums
+)
+if "%MKENUMS%" == "" (
+    echo Unable to find glib-mkenums perl script
+    goto error
+)
+
+set MKENUMS=perl "%MKENUMS%"
+set FILES=[inputs]
+
+cd /d "[WorkingDir]"
+
+rem Create a space-delimited list of every line in the input file
+if "%(UseFileInputPath)" == "true" (
+    for /F "tokens=*" %%A in ('sed -n "1h;2,$H;${g;s/\n/ /g;p}" "%(FullPath)"') do set FILES=%%A
+)
+
+if "[OutputFiles]" == "both" goto header
+if "[OutputFiles]" == "header" goto header
+goto source
+
+:header
+if "[hOutputPath]" == "" (
+    echo Missing valid header output path
+    goto error
+)
+if "[hOutputOperation]" == "nothing" goto hNothing
+if "[hOutputOperation]" == "overwrite" goto hOverwrite
+if "[hOutputOperation]" == "append" goto hAppend
+goto hNext
+
+:hNothing
+:hOverwrite
+%MKENUMS% [hFHead] [hFProd] [hFTail] [hEProd] [hVHead] [hVProd] [hVTail] [hComments] [hTemplate] %FILES% &gt; "[hOutputPath]"
+goto hNext
+
+:hAppend
+%MKENUMS% [hFHead] [hFProd] [hFTail] [hEProd] [hVHead] [hVProd] [hVTail] [hComments] [hTemplate] %FILES% &gt;&gt; "[hOutputPath]"
+goto hNext
+
+:hNext
+if not "%(hCopyPath)" == "" (
+    echo Copying generated header file...
+    [hCopyPath]
+)
+
+if "[OutputFiles]" == "both" goto source
+goto end
+
+:source
+if "[sOutputPath]" == "" (
+    echo Missing valid source output path
+    goto error
+)
+if "[sOutputOperation]" == "nothing" goto sNothing
+if "[sOutputOperation]" == "overwrite" goto sOverwrite
+if "[sOutputOperation]" == "append" goto sAppend
+goto end
+
+:sNothing
+:sOverwrite
+%MKENUMS% [sFHead] [sFProd] [sFTail] [sEProd] [sVHead] [sVProd] [sVTail] [sComments] [sTemplate] %FILES% &gt; "[sOutputPath]"
+goto sNext
+
+:sAppend
+%MKENUMS% [sFHead] [sFProd] [sFTail] [sEProd] [sVHead] [sVProd] [sVTail] [sComments] [sTemplate] %FILES% &gt;&gt; "[sOutputPath]"
+goto sNext
+
+:sNext
+if not "%(sCopyPath)" == "" (
+    echo Copying generated source file...
+    [sCopyPath]
+)
+goto end
+
+:error
+exit 1
+goto end
+
+:end
+exit 0</CommandLineTemplate>
+      <Outputs>%(Filename).tmp.enum</Outputs>
+    </Glib_Make_Enums_Tool>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(Yasm_ToolBeforeTargets)' == '' and '$(Yasm_ToolAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <Yasm_ToolBeforeTargets>Midl</Yasm_ToolBeforeTargets>
+    <Yasm_ToolAfterTargets>CustomBuild</Yasm_ToolAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Yasm_ToolDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(Yasm_ToolDependsOn)</Yasm_ToolDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Yasm_Tool>
+      <ForceStrict>False</ForceStrict>
+      <ShowWarnings>False</ShowWarnings>
+      <WarningsAsErrors>False</WarningsAsErrors>
+      <PreprocessOnly>False</PreprocessOnly>
+      <WorkingDir>$(ProjectDir)</WorkingDir>
+      <OutputObjectFile>$(IntDir)%(Filename).obj</OutputObjectFile>
+      <Architecture>0</Architecture>
+      <Parser>2</Parser>
+      <Preprocessor>0</Preprocessor>
+      <ObjectFormat>1</ObjectFormat>
+      <DebuggingFormat>2</DebuggingFormat>
+      <ListFormat>0</ListFormat>
+      <Machine>0</Machine>
+      <MessageStyle>0</MessageStyle>
+      <CommandLineTemplate>set OUTBIN=$(OutDir)bin
+set SHAREDBIN=$(SolutionDir)Shared\Build\Windows\$(Platform)\bin
+set PATH=%OUTBIN%;%SHAREDBIN%;$(SolutionDir)Tools;%PATH%
+
+set YASM=yasm
+
+cd /d "[WorkingDir]"
+
+%YASM% [Architecture] [Parser] [Preprocessor] [ObjectFormat] [DebuggingFormat] [ListFormat] [Machine] [MessageStyle] [ForceStrict] [PreprocessOnly] [ShowWarnings] [WarningsAsErrors] [Prefix] [Suffix] [MacroDefines] [MacroUndefines] [IncludePaths] [PreincludeFile] [AdditionalOptions] [OutputMapFile] [OutputListFile] [OutputObjectFile] [inputs]
+goto end
+
+:error
+exit 1
+goto end
+
+:end
+exit 0</CommandLineTemplate>
+      <Outputs>%(OutputObjectFile)</Outputs>
+    </Yasm_Tool>
+  </ItemDefinitionGroup>
+</Project>

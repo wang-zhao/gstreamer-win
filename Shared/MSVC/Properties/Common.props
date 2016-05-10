@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(SolutionDir)Shared\MSVC\Properties\Output.props" />
+    <Import Project="$(SolutionDir)Shared\MSVC\Properties\Version.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <PKG_CONFIG_PATH>$(OutDir)lib\pkgconfig;$(SolutionDir)Build\Windows\$(Platform)\$(Configuration)\lib\pkgconfig;$(SolutionDir)Shared\Windows\$(Platform)\$(Configuration)\lib\pkgconfig;$(PKG_CONFIG_PATH)</PKG_CONFIG_PATH>
+    <OAH_DEPS_INC_RSP_FILE />
+    <OAH_DEPS_LIBS_RSP_FILE />
+    <GLibGenMarshalEXE>glib-genmarshal.exe</GLibGenMarshalEXE>
+    <GLibMkEnumsPL>glib-mkenums.pl</GLibMkEnumsPL>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+    <OutDir>$(SolutionDir)Build\Windows\$(PlatformName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\Windows\$(PlatformName)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <GenerateManifest>false</GenerateManifest>
+    <EmbedManifest>false</EmbedManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <BuildLog>
+      <Path>$(IntDir)BuildLog.htm</Path>
+    </BuildLog>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\;$(IntDir);$(SolutionDir)Shared\Build\Windows\$(Platform)\include\;$(SolutionDir)Shared\MSVC\Include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling />
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <ProgramDataBaseFileName>$(OutDir)pdb\$(TargetName).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <CompileAs>Default</CompileAs>
+      <ForcedIncludeFiles>$(SolutionDir)Shared\MSVC\Include\msvc-pragmas.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(ProjectName).lib</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir)lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <Link>
+      <OutputFile>$(OutDir)bin\$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir)lib\;$(SolutionDir)Shared\Build\Windows\$(Platform)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)pdb\$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="PKG_CONFIG_PATH">
+      <Value>$(PKG_CONFIG_PATH)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="OAH_DEPS_INC_RSP_FILE">
+      <Value>$(OAH_DEPS_INC_RSP_FILE)</Value>
+    </BuildMacro>
+    <BuildMacro Include="OAH_DEPS_LIBS_RSP_FILE">
+      <Value>$(OAH_DEPS_LIBS_RSP_FILE)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLibGenMarshalEXE">
+      <Value>$(GLibGenMarshalEXE)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLibMkEnumsPL">
+      <Value>$(GLibMkEnumsPL)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

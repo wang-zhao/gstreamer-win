@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibSchroedingerMajorVersion>1</LibSchroedingerMajorVersion>
+    <LibSchroedingerMinorVersion>0</LibSchroedingerMinorVersion>
+    <LibSchroedingerMicroVersion>6</LibSchroedingerMicroVersion>
+    <LibSchroedingerVersionString>$(LibSchroedingerMajorVersion).$(LibSchroedingerMinorVersion).$(LibSchroedingerMicroVersion)</LibSchroedingerVersionString>
+    <LibSchroedingerApiVersionString>$(LibSchroedingerMajorVersion).$(LibSchroedingerMinorVersion)</LibSchroedingerApiVersionString>
+    <LibSchroedingerLibVersionString>$(LibSchroedingerMajorVersion).$(LibSchroedingerMinorVersion)</LibSchroedingerLibVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\schroedinger-1.0;$(SolutionDir)Shared\Build\Windows\$(Platform)\include\schroedinger-1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>schroedinger-$(LibSchroedingerLibVersionString).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibSchroedingerMajorVersion">
+      <Value>$(LibSchroedingerMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibSchroedingerMinorVersion">
+      <Value>$(LibSchroedingerMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibSchroedingerMicroVersion">
+      <Value>$(LibSchroedingerMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibSchroedingerVersionString">
+      <Value>$(LibSchroedingerVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibSchroedingerApiVersionString">
+      <Value>$(LibSchroedingerApiVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibSchroedingerLibVersionString">
+      <Value>$(LibSchroedingerLibVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

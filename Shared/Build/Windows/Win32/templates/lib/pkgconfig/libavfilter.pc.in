@@ -1,0 +1,14 @@
+prefix=@SHARED_BUILD_DIR@
+exec_prefix=${prefix}
+libdir=@SHARED_BUILD_DIR@/lib
+includedir=@SHARED_BUILD_DIR@/include
+
+Name: libavfilter
+Description: FFmpeg video filtering library
+Version: 1.53.0
+Requires: 
+Requires.private: libavcore = 0.9.1
+Conflicts:
+Libs: -L${libdir} -lavfilter 
+Libs.private: -lavicap32 -lws2_32 -lavifil32 -lm -lbz2 -lz -lpsapi
+Cflags: -I${includedir}

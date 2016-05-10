@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibA52MajorVersion>0</LibA52MajorVersion>
+    <LibA52MinorVersion>7</LibA52MinorVersion>
+    <LibA52MicroVersion>4</LibA52MicroVersion>
+    <LibA52VersionString>$(LibA52MajorVersion).$(LibA52MinorVersion).$(LibA52MicroVersion)</LibA52VersionString>
+    <LibA52ApiVersionString>$(LibA52MajorVersion).$(LibA52MinorVersion)</LibA52ApiVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\a52dec;$(SolutionDir)Shared\Build\Windows\$(Platform)\include\a52dec;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>a52.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibA52MajorVersion">
+      <Value>$(LibA52MajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibA52MinorVersion">
+      <Value>$(LibA52MinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibA52MicroVersion">
+      <Value>$(LibA52MicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibA52VersionString">
+      <Value>$(LibA52VersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibA52ApiVersionString">
+      <Value>$(LibA52ApiVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

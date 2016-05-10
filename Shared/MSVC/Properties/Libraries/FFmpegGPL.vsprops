@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="FFmpeg-GPL"
+	InheritedPropertySheets=".\LibSchroedinger.vsprops;.\OpenJPEG.vsprops;.\PThreads.vsprops;.\MP3Lame.vsprops;.\LibSpeex.vsprops;..\SDKs\MinGW.vsprops;.\Faad2.vsprops;.\LibTheora.vsprops;.\LibVorbis.vsprops;.\X264.vsprops;.\BZip2.vsprops;.\ZLib.vsprops;.\XvidCore.vsprops;.\LibOil.vsprops"
+	>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="avutil-gpl.lib avfilter-gpl.lib avdevice-gpl.lib avformat-gpl.lib avcodec-gpl.lib swscale-gpl.lib vfw32.lib wsock32.lib"
+	/>
+	<UserMacro
+		Name="FFmpegMajorVersion"
+		Value="0"
+	/>
+	<UserMacro
+		Name="FFmpegMinorVersion"
+		Value="5"
+	/>
+	<UserMacro
+		Name="FFmpegMicroVersion"
+		Value="0"
+	/>
+	<UserMacro
+		Name="FFmpegApiInterfaceAge"
+		Value="0"
+	/>
+	<UserMacro
+		Name="FFmpegLibAvCodecBuildNumber"
+		Value="52"
+	/>
+	<UserMacro
+		Name="FFmpegLibAvDeviceBuildNumber"
+		Value="52"
+	/>
+	<UserMacro
+		Name="FFmpegLibAvFilterBuildNumber"
+		Value="0"
+	/>
+	<UserMacro
+		Name="FFmpegLibAvFormatBuildNumber"
+		Value="52"
+	/>
+	<UserMacro
+		Name="FFmpegLibAvUtilBuildNumber"
+		Value="49"
+	/>
+	<UserMacro
+		Name="FFmpegVersionString"
+		Value="$(FFmpegMajorVersion).$(FFmpegMinorVersion).$(FFmpegMicroVersion)"
+	/>
+	<UserMacro
+		Name="FFmpegApiVersionString"
+		Value="$(FFmpegMajorVersion).$(FFmpegMinorVersion)"
+	/>
+	<UserMacro
+		Name="FFmpegLibVersionString"
+		Value="$(FFmpegApiVersionString)-$(FFmpegApiInterfaceAge)"
+	/>
+</VisualStudioPropertySheet>

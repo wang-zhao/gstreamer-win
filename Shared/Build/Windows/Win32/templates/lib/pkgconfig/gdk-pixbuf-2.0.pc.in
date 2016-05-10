@@ -1,0 +1,17 @@
+prefix=@SHARED_BUILD_DIR@
+exec_prefix=${prefix}
+libdir=@SHARED_BUILD_DIR@/lib
+includedir=@SHARED_BUILD_DIR@/include
+
+gdk_pixbuf_binary_version=2.10.0
+gdk_pixbuf_binarydir=@SHARED_BUILD_DIR@/lib/gdk-pixbuf-2.0/2.10.0
+gdk_pixbuf_moduledir=${gdk_pixbuf_binarydir}/loaders
+gdk_pixbuf_cache_file=${gdk_pixbuf_binarydir}/loaders.cache
+
+Name: GdkPixbuf
+Description: Image loading and scaling
+Version: 2.22.0
+Requires: gobject-2.0 gmodule-no-export-2.0 libpng
+Libs: -L${libdir} -lgdk_pixbuf-2.0  -ltiff -ljpeg -Lc:/Build/OSSBuild/Build/Windows/Win32/Release/lib -lpng14    
+Cflags: -I${includedir}/gdk-pixbuf-2.0 
+

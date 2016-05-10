@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="LibMad"
+	InheritedPropertySheets=".\ZLib.vsprops"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories=""
+		PreprocessorDefinitions="MAD_EXPORTS"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="mad.lib id3tag.lib"
+	/>
+	<UserMacro
+		Name="LibMadApiVersionString"
+		Value="0.15"
+	/>
+	<UserMacro
+		Name="LibMadLibVersionString"
+		Value="$(LibMadApiVersionString)"
+	/>
+</VisualStudioPropertySheet>

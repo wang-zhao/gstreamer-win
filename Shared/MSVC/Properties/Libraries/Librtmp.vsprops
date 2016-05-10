@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="Librtmp"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(OutDir)\include\librtmp&quot;;&quot;$(SolutionDir)Shared\Build\Windows\$(PlatformName)\include\librtmp&quot;"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="librtmp.lib"
+	/>
+	
+</VisualStudioPropertySheet>

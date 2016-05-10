@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <OAH_DEPS_FILE_NAME>$(RootNamespace)</OAH_DEPS_FILE_NAME>
+    <OAH_DEPS_INC_RSP_FILE>@$(IntDir)$(OAH_DEPS_FILE_NAME).inc</OAH_DEPS_INC_RSP_FILE>
+    <OAH_DEPS_LIBS_RSP_FILE>@$(IntDir)$(OAH_DEPS_FILE_NAME).libs</OAH_DEPS_LIBS_RSP_FILE>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="OAH_DEPS_FILE_NAME">
+      <Value>$(OAH_DEPS_FILE_NAME)</Value>
+    </BuildMacro>
+    <BuildMacro Include="OAH_DEPS_INC_RSP_FILE">
+      <Value>$(OAH_DEPS_INC_RSP_FILE)</Value>
+    </BuildMacro>
+    <BuildMacro Include="OAH_DEPS_LIBS_RSP_FILE">
+      <Value>$(OAH_DEPS_LIBS_RSP_FILE)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

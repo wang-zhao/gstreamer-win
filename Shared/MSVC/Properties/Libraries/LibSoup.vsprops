@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="LibSoup"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(OutDir)\include\libsoup-$(LibSoupApiVersionString)&quot;;&quot;$(SolutionDir)Shared\Build\Windows\$(PlatformName)\include\libsoup-$(LibSoupApiVersionString)&quot;"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="soup-$(LibSoupLibVersionString).lib"
+	/>
+	<UserMacro
+		Name="LibSoupMajorVersion"
+		Value="2"
+	/>
+	<UserMacro
+		Name="LibSoupMinorVersion"
+		Value="26"
+	/>
+	<UserMacro
+		Name="LibSoupMicroVersion"
+		Value="1"
+	/>
+	<UserMacro
+		Name="LibSoupApiInterfaceAge"
+		Value="1"
+	/>
+	<UserMacro
+		Name="LibSoupVersionString"
+		Value="$(LibSoupMajorVersion).$(LibSoupMinorVersion).$(LibSoupMicroVersion)"
+	/>
+	<UserMacro
+		Name="LibSoupApiVersionString"
+		Value="2.4"
+	/>
+	<UserMacro
+		Name="LibSoupLibVersionString"
+		Value="$(LibSoupApiVersionString)"
+	/>
+</VisualStudioPropertySheet>

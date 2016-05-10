@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibCeltMajorVersion>0</LibCeltMajorVersion>
+    <LibCeltMinorVersion>7</LibCeltMinorVersion>
+    <LibCeltMicroVersion>1</LibCeltMicroVersion>
+    <LibCeltApiInterfaceAge>0</LibCeltApiInterfaceAge>
+    <LibCeltVersionString>$(LibCeltMajorVersion).$(LibCeltMinorVersion).$(LibCeltMicroVersion)</LibCeltVersionString>
+    <LibCeltApiVersionString>$(LibCeltMajorVersion).$(LibCeltMinorVersion)</LibCeltApiVersionString>
+    <LibCeltLibVersionString>$(LibCeltApiInterfaceAge)</LibCeltLibVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+    <_PropertySheetDisplayName>Celt</_PropertySheetDisplayName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>HAVE_CELT_0_5;HAVE_CELT_0_6;HAVE_CELT_0_7;HAVE_CELT_0_8;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>celt$(LibCeltLibVersionString).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibCeltMajorVersion">
+      <Value>$(LibCeltMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibCeltMinorVersion">
+      <Value>$(LibCeltMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibCeltMicroVersion">
+      <Value>$(LibCeltMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibCeltApiInterfaceAge">
+      <Value>$(LibCeltApiInterfaceAge)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibCeltVersionString">
+      <Value>$(LibCeltVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibCeltApiVersionString">
+      <Value>$(LibCeltApiVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibCeltLibVersionString">
+      <Value>$(LibCeltLibVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

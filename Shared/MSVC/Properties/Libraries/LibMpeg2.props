@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibMpeg2MajorVersion>0</LibMpeg2MajorVersion>
+    <LibMpeg2MinorVersion>5</LibMpeg2MinorVersion>
+    <LibMpeg2MicroVersion>1</LibMpeg2MicroVersion>
+    <LibMpeg2VersionString>$(LibMpeg2MajorVersion).$(LibMpeg2MinorVersion).$(LibMpeg2MicroVersion)</LibMpeg2VersionString>
+    <LibMpeg2ApiVersionString>$(LibMpeg2MajorVersion).$(LibMpeg2MinorVersion)</LibMpeg2ApiVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\mpeg2dec;$(SolutionDir)Shared\Build\Windows\$(Platform)\include\mpeg2dec;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>mpeg2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibMpeg2MajorVersion">
+      <Value>$(LibMpeg2MajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibMpeg2MinorVersion">
+      <Value>$(LibMpeg2MinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibMpeg2MicroVersion">
+      <Value>$(LibMpeg2MicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibMpeg2VersionString">
+      <Value>$(LibMpeg2VersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibMpeg2ApiVersionString">
+      <Value>$(LibMpeg2ApiVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

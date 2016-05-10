@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="LibXml"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(OutDir)\include\libxml2&quot;;&quot;$(SolutionDir)Shared\Build\Windows\$(PlatformName)\include\libxml2&quot;"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="xml2.lib"
+	/>
+	<UserMacro
+		Name="LibXml2MajorVersion"
+		Value="2"
+	/>
+	<UserMacro
+		Name="LibXml2MinorVersion"
+		Value="7"
+	/>
+	<UserMacro
+		Name="LibXml2MicroVersion"
+		Value="3"
+	/>
+	<UserMacro
+		Name="LibXml2VersionNumber"
+		Value="20703"
+	/>
+	<UserMacro
+		Name="LibXml2VersionString"
+		Value="$(LibXml2MajorVersion).$(LibXml2MinorVersion).$(LibXml2MicroVersion)"
+	/>
+</VisualStudioPropertySheet>

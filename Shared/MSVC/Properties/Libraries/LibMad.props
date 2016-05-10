@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+    <Import Project="ZLib.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibMadApiVersionString>0.15</LibMadApiVersionString>
+    <LibMadLibVersionString>$(LibMadApiVersionString)</LibMadLibVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>MAD_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>mad.lib;id3tag.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibMadApiVersionString">
+      <Value>$(LibMadApiVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibMadLibVersionString">
+      <Value>$(LibMadLibVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

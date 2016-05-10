@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+	Provides default resource processors.
+-->
+
+<ResourceProcessors>
+	<Load class="ossbuild.extract.processors.VarProcessor" />
+	<Load class="ossbuild.extract.processors.EchoProcessor" />
+	<Load class="ossbuild.extract.processors.FileProcessor" />
+	<Load class="ossbuild.extract.processors.CleanProcessor" />
+	<Load class="ossbuild.extract.processors.IfDefProcessor" />
+	<Load class="ossbuild.extract.processors.DeleteProcessor" />
+	<Load class="ossbuild.extract.processors.EnvVarProcessor" />
+	<Load class="ossbuild.extract.processors.LibraryProcessor" />
+	<Load class="ossbuild.extract.processors.SymLinkProcessor" />
+	<Load class="ossbuild.extract.processors.IfNotDefProcessor" />
+	<Load class="ossbuild.extract.processors.MakeDirectoryProcessor" />
+	<Load class="ossbuild.extract.processors.SystemPropertyProcessor" />
+	<Load class="ossbuild.extract.processors.WorkingDirectoryProcessor" />
+	<Load class="ossbuild.extract.processors.AddJNASearchPathProcessor" />
+</ResourceProcessors>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="LibOrc"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(SolutionDir)Shared\Build\Windows\$(PlatformName)\include\orc-$(LibOrcApiVersionString)&quot;"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="orc-$(LibOrcLibVersionString).lib"
+	/>
+	<UserMacro
+		Name="LibOrcMajorVersion"
+		Value="0"
+	/>
+	<UserMacro
+		Name="LibOrcMinorVersion"
+		Value="4"
+	/>
+	<UserMacro
+		Name="LibOrcMicroVersion"
+		Value="5"
+	/>
+	<UserMacro
+		Name="LibOrcVersionString"
+		Value="$(LibOilMajorVersion).$(LibOilMinorVersion).$(LibOilMicroVersion)"
+	/>
+	<UserMacro
+		Name="LibOrcApiVersionString"
+		Value="$(LibOrcMajorVersion).$(LibOrcMinorVersion)"
+	/>
+	<UserMacro
+		Name="LibOrcLibVersionString"
+		Value="$(LibOrcApiVersionString)"
+	/>
+</VisualStudioPropertySheet>

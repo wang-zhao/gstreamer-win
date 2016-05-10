@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibDcaMajorVersion>0</LibDcaMajorVersion>
+    <LibDcaMinorVersion>0</LibDcaMinorVersion>
+    <LibDcaMicroVersion>5</LibDcaMicroVersion>
+    <LibDcaVersionString>$(LibDcaMajorVersion).$(LibDcaMinorVersion).$(LibDcaMicroVersion)</LibDcaVersionString>
+    <LibDcaApiVersionString>$(LibDcaMajorVersion).$(LibDcaMinorVersion)</LibDcaApiVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>dca.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibDcaMajorVersion">
+      <Value>$(LibDcaMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibDcaMinorVersion">
+      <Value>$(LibDcaMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibDcaMicroVersion">
+      <Value>$(LibDcaMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibDcaVersionString">
+      <Value>$(LibDcaVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibDcaApiVersionString">
+      <Value>$(LibDcaApiVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

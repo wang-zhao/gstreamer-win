@@ -1,0 +1,1 @@
+custom_baseclasses.vcproj has been modified to reference MSVCRT instead of MSVCR90+.

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+	transient: if the resource already exists at the destination, replace
+	           it if the embedded resource is newer.
+
+	Variables:
+	    ${home}   user's home directory
+	    ${tmp}    temp directory
+-->
+<Resources name="test">
+
+	<Extract package="resources.extraction.windows.x86_64" directory="${tmp}/ossbuild/">
+
+		<Var name="saved_pkg" value="${pkg}" />
+		<Var name="pkg" value="test" />
+
+		<Library>
+			<SystemAttempt>kernel32</SystemAttempt>
+		</Library>
+
+		<Library resource="fake.dll" transient="true" subDirectory="." destName="fake2.dll" title="Fake library" description="Fake description">
+			<SystemAttempt>fake.dll</SystemAttempt>
+			<SystemAttempt>fake2.dll</SystemAttempt>
+		</Library>
+
+		<File resource="fake.png" subDirectory="." destName="fake2.png" title="" description="" />
+
+		<IfNotDef var="some_test_var">
+			<Library resource="jnidispatch.dll" transient="true" subDirectory="test/test/" destName="test.dll" title="Test library" description="Test description">
+				<SystemAttempt>jnidispatch.dll</SystemAttempt>
+			</Library>
+		</IfNotDef>
+
+		<IfDef var="saved_pkg">
+			<File resource="test.txt" subDirectory="test/test" destName="test2.txt" />
+		</IfDef>
+
+	</Extract>
+
+</Resources>

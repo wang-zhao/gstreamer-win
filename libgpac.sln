@@ -1,0 +1,22 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libgpac", "Main\libgpac\libgpac.vcproj", "{33165B76-A0A0-4C04-81E7-301ABB28A5DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release_MD|Win32 = Release_MD|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33165B76-A0A0-4C04-81E7-301ABB28A5DB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{33165B76-A0A0-4C04-81E7-301ABB28A5DB}.Debug|Win32.Build.0 = Debug|Win32
+		{33165B76-A0A0-4C04-81E7-301ABB28A5DB}.Release_MD|Win32.ActiveCfg = Release_MD|Win32
+		{33165B76-A0A0-4C04-81E7-301ABB28A5DB}.Release_MD|Win32.Build.0 = Release_MD|Win32
+		{33165B76-A0A0-4C04-81E7-301ABB28A5DB}.Release|Win32.ActiveCfg = Release|Win32
+		{33165B76-A0A0-4C04-81E7-301ABB28A5DB}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

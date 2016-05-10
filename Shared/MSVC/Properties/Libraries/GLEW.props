@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <GLEWMajorVersion>1</GLEWMajorVersion>
+    <GLEWMinorVersion>5</GLEWMinorVersion>
+    <GLEWMicroVersion>1</GLEWMicroVersion>
+    <GLEWVersionString>$(GLEWMajorVersion).$(GLEWMinorVersion).$(GLEWMicroVersion)</GLEWVersionString>
+    <GLEWApiVersionString>$(GLEWMajorVersion).$(GLEWMinorVersion)</GLEWApiVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>glew32.lib;opengl32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="GLEWMajorVersion">
+      <Value>$(GLEWMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLEWMinorVersion">
+      <Value>$(GLEWMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLEWMicroVersion">
+      <Value>$(GLEWMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLEWVersionString">
+      <Value>$(GLEWVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLEWApiVersionString">
+      <Value>$(GLEWApiVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

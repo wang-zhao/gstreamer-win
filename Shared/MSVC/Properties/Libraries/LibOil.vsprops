@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="LibOil"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(OutDir)\include\liboil-$(LibOilApiVersionString)&quot;;&quot;$(SolutionDir)Shared\Build\Windows\$(PlatformName)\include\liboil-$(LibOilApiVersionString)&quot;"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="oil-$(LibOilLibVersionString).lib"
+	/>
+	<UserMacro
+		Name="LibOilMajorVersion"
+		Value="0"
+	/>
+	<UserMacro
+		Name="LibOilMinorVersion"
+		Value="3"
+	/>
+	<UserMacro
+		Name="LibOilMicroVersion"
+		Value="16"
+	/>
+	<UserMacro
+		Name="LibOilApiInterfaceAge"
+		Value="0"
+	/>
+	<UserMacro
+		Name="LibOilVersionString"
+		Value="$(LibOilMajorVersion).$(LibOilMinorVersion).$(LibOilMicroVersion)"
+	/>
+	<UserMacro
+		Name="LibOilApiVersionString"
+		Value="$(LibOilMajorVersion).$(LibOilMinorVersion)"
+	/>
+	<UserMacro
+		Name="LibOilLibVersionString"
+		Value="$(LibOilApiVersionString)"
+	/>
+</VisualStudioPropertySheet>

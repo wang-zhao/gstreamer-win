@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="Flac"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(SolutionDir)Shared\Build\Windows\$(PlatformName)\include\FLAC&quot;"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="flac.lib"
+	/>
+	<UserMacro
+		Name="FlacMajorVersion"
+		Value="1"
+	/>
+	<UserMacro
+		Name="FlacMinorVersion"
+		Value="2"
+	/>
+	<UserMacro
+		Name="FlacMicroVersion"
+		Value="1"
+	/>
+	<UserMacro
+		Name="FlacVersionString"
+		Value="$(FlacMajorVersion).$(FlacMinorVersion).$(FlacMicroVersion)"
+	/>
+	<UserMacro
+		Name="FlacApiVersionString"
+		Value="$(FlacMajorVersion).$(FlacMinorVersion)"
+	/>
+</VisualStudioPropertySheet>

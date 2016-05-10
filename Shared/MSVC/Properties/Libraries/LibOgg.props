@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibOggMajorVersion>1</LibOggMajorVersion>
+    <LibOggMinorVersion>1</LibOggMinorVersion>
+    <LibOggMicroVersion>3</LibOggMicroVersion>
+    <LibOggApiInterfaceAge>0</LibOggApiInterfaceAge>
+    <LibOggVersionString>$(LibOggMajorVersion).$(LibOggMinorVersion).$(LibOggMicroVersion)</LibOggVersionString>
+    <LibOggApiVersionString>$(LibOggMajorVersion).$(LibOggMinorVersion)</LibOggApiVersionString>
+    <LibOggLibVersionString>$(LibOggApiVersionString)-$(LibOggApiInterfaceAge)</LibOggLibVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+    <_PropertySheetDisplayName>Ogg</_PropertySheetDisplayName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>ogg.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibOggMajorVersion">
+      <Value>$(LibOggMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibOggMinorVersion">
+      <Value>$(LibOggMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibOggMicroVersion">
+      <Value>$(LibOggMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibOggApiInterfaceAge">
+      <Value>$(LibOggApiInterfaceAge)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibOggVersionString">
+      <Value>$(LibOggVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibOggApiVersionString">
+      <Value>$(LibOggApiVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibOggLibVersionString">
+      <Value>$(LibOggLibVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

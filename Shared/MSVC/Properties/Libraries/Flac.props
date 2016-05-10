@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <FlacMajorVersion>1</FlacMajorVersion>
+    <FlacMinorVersion>2</FlacMinorVersion>
+    <FlacMicroVersion>1</FlacMicroVersion>
+    <FlacVersionString>$(FlacMajorVersion).$(FlacMinorVersion).$(FlacMicroVersion)</FlacVersionString>
+    <FlacApiVersionString>$(FlacMajorVersion).$(FlacMinorVersion)</FlacApiVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)Shared\Build\Windows\$(Platform)\include\FLAC;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>flac.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="FlacMajorVersion">
+      <Value>$(FlacMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FlacMinorVersion">
+      <Value>$(FlacMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FlacMicroVersion">
+      <Value>$(FlacMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FlacVersionString">
+      <Value>$(FlacVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FlacApiVersionString">
+      <Value>$(FlacApiVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

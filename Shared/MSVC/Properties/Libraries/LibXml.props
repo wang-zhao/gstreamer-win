@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibXml2MajorVersion>2</LibXml2MajorVersion>
+    <LibXml2MinorVersion>7</LibXml2MinorVersion>
+    <LibXml2MicroVersion>3</LibXml2MicroVersion>
+    <LibXml2VersionNumber>20703</LibXml2VersionNumber>
+    <LibXml2VersionString>$(LibXml2MajorVersion).$(LibXml2MinorVersion).$(LibXml2MicroVersion)</LibXml2VersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\libxml2;$(SolutionDir)Shared\Build\Windows\$(Platform)\include\libxml2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>xml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibXml2MajorVersion">
+      <Value>$(LibXml2MajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibXml2MinorVersion">
+      <Value>$(LibXml2MinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibXml2MicroVersion">
+      <Value>$(LibXml2MicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibXml2VersionNumber">
+      <Value>$(LibXml2VersionNumber)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibXml2VersionString">
+      <Value>$(LibXml2VersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

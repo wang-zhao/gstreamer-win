@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="FreeType"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(OutDir)\include\freetype2&quot;;&quot;$(SolutionDir)Shared\Build\Windows\$(PlatformName)\include\freetype2&quot;"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="freetype.lib"
+	/>
+	<UserMacro
+		Name="FreeTypeMajorVersion"
+		Value="2"
+	/>
+	<UserMacro
+		Name="FreeTypeMinorVersion"
+		Value="3"
+	/>
+	<UserMacro
+		Name="FreeTypeMicroVersion"
+		Value="9"
+	/>
+	<UserMacro
+		Name="FreeTypeInterfaceAge"
+		Value="6"
+	/>
+	<UserMacro
+		Name="FreeTypeVersionNumber"
+		Value="020309"
+	/>
+	<UserMacro
+		Name="FreeTypeVersionString"
+		Value="$(FreeTypeMajorVersion).$(FreeTypeMinorVersion).$(FreeTypeMicroVersion)"
+	/>
+</VisualStudioPropertySheet>

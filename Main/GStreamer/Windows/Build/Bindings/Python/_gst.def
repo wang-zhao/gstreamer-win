@@ -1,0 +1,5 @@
+
+EXPORTS
+pygstminiobject_new
+pygstminiobject_register_class
+pygstminiobject_register_wrapper

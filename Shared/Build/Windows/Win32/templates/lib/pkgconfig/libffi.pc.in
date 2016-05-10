@@ -1,0 +1,10 @@
+prefix=@SHARED_BUILD_DIR@
+exec_prefix=${prefix}
+libdir=@SHARED_BUILD_DIR@/lib
+includedir=${libdir}/libffi-3.0.10rc0/include
+
+Name: libffi
+Description: Library supporting Foreign Function Interfaces
+Version: 3.0.10rc0
+Libs: -L${libdir} -lffi
+Cflags: -I${includedir}

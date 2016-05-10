@@ -1,0 +1,40 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libpng", "Main\libpng-1.5.12\projects\vstuido90\libpng.vcproj", "{0008960E-E0DD-41A6-8265-00B31DDB4C21}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pngtest", "Main\libpng-1.5.12\projects\vstuido90\pngtest.vcproj", "{FD1C2F86-9EEF-47BD-95A4-530917E17FDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		DLL VB|Win32 = DLL VB|Win32
+		LIB Debug|Win32 = LIB Debug|Win32
+		LIB Release|Win32 = LIB Release|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0008960E-E0DD-41A6-8265-00B31DDB4C21}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0008960E-E0DD-41A6-8265-00B31DDB4C21}.Debug|Win32.Build.0 = Debug|Win32
+		{0008960E-E0DD-41A6-8265-00B31DDB4C21}.DLL VB|Win32.ActiveCfg = DLL VB|Win32
+		{0008960E-E0DD-41A6-8265-00B31DDB4C21}.DLL VB|Win32.Build.0 = DLL VB|Win32
+		{0008960E-E0DD-41A6-8265-00B31DDB4C21}.LIB Debug|Win32.ActiveCfg = LIB Debug|Win32
+		{0008960E-E0DD-41A6-8265-00B31DDB4C21}.LIB Debug|Win32.Build.0 = LIB Debug|Win32
+		{0008960E-E0DD-41A6-8265-00B31DDB4C21}.LIB Release|Win32.ActiveCfg = LIB Release|Win32
+		{0008960E-E0DD-41A6-8265-00B31DDB4C21}.LIB Release|Win32.Build.0 = LIB Release|Win32
+		{0008960E-E0DD-41A6-8265-00B31DDB4C21}.Release|Win32.ActiveCfg = Release|Win32
+		{0008960E-E0DD-41A6-8265-00B31DDB4C21}.Release|Win32.Build.0 = Release|Win32
+		{FD1C2F86-9EEF-47BD-95A4-530917E17FDA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FD1C2F86-9EEF-47BD-95A4-530917E17FDA}.Debug|Win32.Build.0 = Debug|Win32
+		{FD1C2F86-9EEF-47BD-95A4-530917E17FDA}.DLL VB|Win32.ActiveCfg = DLL VB|Win32
+		{FD1C2F86-9EEF-47BD-95A4-530917E17FDA}.DLL VB|Win32.Build.0 = DLL VB|Win32
+		{FD1C2F86-9EEF-47BD-95A4-530917E17FDA}.LIB Debug|Win32.ActiveCfg = LIB Debug|Win32
+		{FD1C2F86-9EEF-47BD-95A4-530917E17FDA}.LIB Debug|Win32.Build.0 = LIB Debug|Win32
+		{FD1C2F86-9EEF-47BD-95A4-530917E17FDA}.LIB Release|Win32.ActiveCfg = LIB Release|Win32
+		{FD1C2F86-9EEF-47BD-95A4-530917E17FDA}.LIB Release|Win32.Build.0 = LIB Release|Win32
+		{FD1C2F86-9EEF-47BD-95A4-530917E17FDA}.Release|Win32.ActiveCfg = Release|Win32
+		{FD1C2F86-9EEF-47BD-95A4-530917E17FDA}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibGdkPixbufApiVersionString>2.0</LibGdkPixbufApiVersionString>
+    <LibGdkPixbufLibVersionString>$(LibGdkPixbufApiVersionString)</LibGdkPixbufLibVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+    <_PropertySheetDisplayName>Gdk Pixbuf</_PropertySheetDisplayName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\gdk-pixbuf-$(LibGdkPixbufLibVersionString);$(SolutionDir)Shared\Build\Windows\$(Platform)\include\gdk-pixbuf-$(LibGdkPixbufLibVersionString);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>gdk_pixbuf-$(LibGdkPixbufLibVersionString).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibGdkPixbufApiVersionString">
+      <Value>$(LibGdkPixbufApiVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibGdkPixbufLibVersionString">
+      <Value>$(LibGdkPixbufLibVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

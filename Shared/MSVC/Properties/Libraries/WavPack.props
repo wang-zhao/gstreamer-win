@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <WavPackMajorVersion>4</WavPackMajorVersion>
+    <WavPackMinorVersion>50</WavPackMinorVersion>
+    <WavPackMicroVersion>1</WavPackMicroVersion>
+    <WavPackVersionString>$(WavPackMajorVersion).$(WavPackMinorVersion).$(WavPackMicroVersion)</WavPackVersionString>
+    <WavPackApiVersionString>$(WavPackMajorVersion).$(WavPackMinorVersion)</WavPackApiVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\wavpack;$(SolutionDir)Shared\Build\Windows\$(Platform)\include\wavpack;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>wavpack.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="WavPackMajorVersion">
+      <Value>$(WavPackMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="WavPackMinorVersion">
+      <Value>$(WavPackMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="WavPackMicroVersion">
+      <Value>$(WavPackMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="WavPackVersionString">
+      <Value>$(WavPackVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="WavPackApiVersionString">
+      <Value>$(WavPackApiVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <SqliteMajorVersion>3</SqliteMajorVersion>
+    <SqliteMinorVersion>6</SqliteMinorVersion>
+    <SqliteMicroVersion>11</SqliteMicroVersion>
+    <SqliteVersionString>$(SqliteMajorVersion).$(SqliteMinorVersion).$(SqliteMicroVersion)</SqliteVersionString>
+    <SqliteLibVersionString>$(SqliteMajorVersion)</SqliteLibVersionString>
+    <LibGpgErrorMajorVersion>1</LibGpgErrorMajorVersion>
+    <LibGpgErrorMinorVersion>7</LibGpgErrorMinorVersion>
+    <LibGpgErrorMicroVersion>0</LibGpgErrorMicroVersion>
+    <LibGpgErrorApiInterfaceAge>0</LibGpgErrorApiInterfaceAge>
+    <LibGpgErrorVersionString>$(LibGpgErrorMajorVersion).$(LibGpgErrorMinorVersion).$(LibGpgErrorMicroVersion)</LibGpgErrorVersionString>
+    <LibGpgErrorLibVersionString>$(LibGpgErrorApiInterfaceAge)</LibGpgErrorLibVersionString>
+    <LibGcryptMajorVersion>1</LibGcryptMajorVersion>
+    <LibGcryptMinorVersion>4</LibGcryptMinorVersion>
+    <LibGcryptMicroVersion>4</LibGcryptMicroVersion>
+    <LibGcryptApiInterfaceAge>11</LibGcryptApiInterfaceAge>
+    <LibGcryptVersionString>$(LibGcryptMajorVersion).$(LibGcryptMinorVersion).$(LibGcryptMicroVersion)</LibGcryptVersionString>
+    <LibGcryptLibVersionString>$(LibGcryptApiInterfaceAge)</LibGcryptLibVersionString>
+    <GnuTlsMajorVersion>2</GnuTlsMajorVersion>
+    <GnuTlsMinorVersion>6</GnuTlsMinorVersion>
+    <GnuTlsMicroVersion>4</GnuTlsMicroVersion>
+    <GnuTlsApiInterfaceAge>26</GnuTlsApiInterfaceAge>
+    <GnuTlsVersionString>$(GnuTlsMajorVersion).$(GnuTlsMinorVersion).$(GnuTlsMicroVersion)</GnuTlsVersionString>
+    <GnuTlsLibVersionString>$(GnuTlsApiInterfaceAge)</GnuTlsLibVersionString>
+    <OpenSslMajorVersion>0</OpenSslMajorVersion>
+    <OpenSslMinorVersion>9</OpenSslMinorVersion>
+    <OpenSslMicroVersion>8</OpenSslMicroVersion>
+    <OpenSslVersionNumber>00908</OpenSslVersionNumber>
+    <OpenSslVersionString>$(OpenSslMajorVersion).$(OpenSslMinorVersion).$(OpenSslMicroVersion)</OpenSslVersionString>
+    <OpenSslDir>C:/openssl/ssl</OpenSslDir>
+    <OpenSslEnginesDir>C:/openssl/lib/engines</OpenSslEnginesDir>
+    <PixmanMajorVersion>0</PixmanMajorVersion>
+    <PixmanMinorVersion>15</PixmanMinorVersion>
+    <PixmanMicroVersion>2</PixmanMicroVersion>
+    <PixmanApiInterfaceAge>1</PixmanApiInterfaceAge>
+    <PixmanVersionString>$(PixmanMajorVersion).$(PixmanMinorVersion).$(PixmanMicroVersion)</PixmanVersionString>
+    <PixmanApiVersionString>$(PixmanMajorVersion).$(PixmanMinorVersion)</PixmanApiVersionString>
+    <PixmanLibVersionString>$(PixmanApiInterfaceAge)</PixmanLibVersionString>
+    <LibMmsMajorVersion>0</LibMmsMajorVersion>
+    <LibMmsMinorVersion>4</LibMmsMinorVersion>
+    <LibMmsMicroVersion>0</LibMmsMicroVersion>
+    <LibMmsApiInterfaceAge>0</LibMmsApiInterfaceAge>
+    <LibMmsVersionString>$(LibMmsMajorVersion).$(LibMmsMinorVersion).$(LibMmsMicroVersion)</LibMmsVersionString>
+    <LibMmsApiVersionString>$(LibMmsMajorVersion).$(LibMmsMinorVersion)</LibMmsApiVersionString>
+    <LibMmsLibVersionString>$(LibMmsApiVersionString)-$(LibMmsApiInterfaceAge)</LibMmsLibVersionString>
+    <X264MajorVersion>0</X264MajorVersion>
+    <X264MinorVersion>67</X264MinorVersion>
+    <X264MicroVersion>0</X264MicroVersion>
+    <X264BuildNumber>67</X264BuildNumber>
+    <X264VersionString>$(X264MajorVersion).$(X264MinorVersion).$(X264MicroVersion)</X264VersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="SqliteMajorVersion">
+      <Value>$(SqliteMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="SqliteMinorVersion">
+      <Value>$(SqliteMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="SqliteMicroVersion">
+      <Value>$(SqliteMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="SqliteVersionString">
+      <Value>$(SqliteVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="SqliteLibVersionString">
+      <Value>$(SqliteLibVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibGpgErrorMajorVersion">
+      <Value>$(LibGpgErrorMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibGpgErrorMinorVersion">
+      <Value>$(LibGpgErrorMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibGpgErrorMicroVersion">
+      <Value>$(LibGpgErrorMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibGpgErrorApiInterfaceAge">
+      <Value>$(LibGpgErrorApiInterfaceAge)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibGpgErrorVersionString">
+      <Value>$(LibGpgErrorVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibGpgErrorLibVersionString">
+      <Value>$(LibGpgErrorLibVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibGcryptMajorVersion">
+      <Value>$(LibGcryptMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibGcryptMinorVersion">
+      <Value>$(LibGcryptMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibGcryptMicroVersion">
+      <Value>$(LibGcryptMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibGcryptApiInterfaceAge">
+      <Value>$(LibGcryptApiInterfaceAge)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibGcryptVersionString">
+      <Value>$(LibGcryptVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibGcryptLibVersionString">
+      <Value>$(LibGcryptLibVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GnuTlsMajorVersion">
+      <Value>$(GnuTlsMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GnuTlsMinorVersion">
+      <Value>$(GnuTlsMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GnuTlsMicroVersion">
+      <Value>$(GnuTlsMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GnuTlsApiInterfaceAge">
+      <Value>$(GnuTlsApiInterfaceAge)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GnuTlsVersionString">
+      <Value>$(GnuTlsVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GnuTlsLibVersionString">
+      <Value>$(GnuTlsLibVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="OpenSslMajorVersion">
+      <Value>$(OpenSslMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="OpenSslMinorVersion">
+      <Value>$(OpenSslMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="OpenSslMicroVersion">
+      <Value>$(OpenSslMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="OpenSslVersionNumber">
+      <Value>$(OpenSslVersionNumber)</Value>
+    </BuildMacro>
+    <BuildMacro Include="OpenSslVersionString">
+      <Value>$(OpenSslVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="OpenSslDir">
+      <Value>$(OpenSslDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="OpenSslEnginesDir">
+      <Value>$(OpenSslEnginesDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PixmanMajorVersion">
+      <Value>$(PixmanMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PixmanMinorVersion">
+      <Value>$(PixmanMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PixmanMicroVersion">
+      <Value>$(PixmanMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PixmanApiInterfaceAge">
+      <Value>$(PixmanApiInterfaceAge)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PixmanVersionString">
+      <Value>$(PixmanVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PixmanApiVersionString">
+      <Value>$(PixmanApiVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PixmanLibVersionString">
+      <Value>$(PixmanLibVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibMmsMajorVersion">
+      <Value>$(LibMmsMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibMmsMinorVersion">
+      <Value>$(LibMmsMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibMmsMicroVersion">
+      <Value>$(LibMmsMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibMmsApiInterfaceAge">
+      <Value>$(LibMmsApiInterfaceAge)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibMmsVersionString">
+      <Value>$(LibMmsVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibMmsApiVersionString">
+      <Value>$(LibMmsApiVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibMmsLibVersionString">
+      <Value>$(LibMmsLibVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="X264MajorVersion">
+      <Value>$(X264MajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="X264MinorVersion">
+      <Value>$(X264MinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="X264MicroVersion">
+      <Value>$(X264MicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="X264BuildNumber">
+      <Value>$(X264BuildNumber)</Value>
+    </BuildMacro>
+    <BuildMacro Include="X264VersionString">
+      <Value>$(X264VersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

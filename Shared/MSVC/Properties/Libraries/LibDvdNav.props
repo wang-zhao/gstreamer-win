@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+    <Import Project="LibDvdRead.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibDvdNavMajorVersion>4</LibDvdNavMajorVersion>
+    <LibDvdNavMinorVersion>1</LibDvdNavMinorVersion>
+    <LibDvdNavMicroVersion>3</LibDvdNavMicroVersion>
+    <LibDvdNavVersionString>$(LibDvdNavMajorVersion).$(LibDvdNavMinorVersion).$(LibDvdNavMicroVersion)</LibDvdNavVersionString>
+    <LibDvdNavApiVersionString>$(LibDvdNavMajorVersion).$(LibDvdNavMinorVersion)</LibDvdNavApiVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\dvdread;$(SolutionDir)Shared\Build\Windows\$(Platform)\include\dvdread;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dvdnav.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibDvdNavMajorVersion">
+      <Value>$(LibDvdNavMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibDvdNavMinorVersion">
+      <Value>$(LibDvdNavMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibDvdNavMicroVersion">
+      <Value>$(LibDvdNavMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibDvdNavVersionString">
+      <Value>$(LibDvdNavVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibDvdNavApiVersionString">
+      <Value>$(LibDvdNavApiVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

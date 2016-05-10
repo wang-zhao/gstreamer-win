@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibVorbisMajorVersion>1</LibVorbisMajorVersion>
+    <LibVorbisMinorVersion>2</LibVorbisMinorVersion>
+    <LibVorbisMicroVersion>0</LibVorbisMicroVersion>
+    <LibVorbisApiInterfaceAge>0</LibVorbisApiInterfaceAge>
+    <LibVorbisVersionString>$(LibVorbisMajorVersion).$(LibVorbisMinorVersion).$(LibVorbisMicroVersion)</LibVorbisVersionString>
+    <LibVorbisApiVersionString>$(LibVorbisMajorVersion).$(LibVorbisMinorVersion)</LibVorbisApiVersionString>
+    <LibVorbisLibVersionString>$(LibVorbisApiVersionString)-$(LibVorbisApiInterfaceAge)</LibVorbisLibVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+    <_PropertySheetDisplayName>Vorbis</_PropertySheetDisplayName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>vorbis.lib;vorbisenc.lib;vorbisfile.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibVorbisMajorVersion">
+      <Value>$(LibVorbisMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibVorbisMinorVersion">
+      <Value>$(LibVorbisMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibVorbisMicroVersion">
+      <Value>$(LibVorbisMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibVorbisApiInterfaceAge">
+      <Value>$(LibVorbisApiInterfaceAge)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibVorbisVersionString">
+      <Value>$(LibVorbisVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibVorbisApiVersionString">
+      <Value>$(LibVorbisApiVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibVorbisLibVersionString">
+      <Value>$(LibVorbisLibVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

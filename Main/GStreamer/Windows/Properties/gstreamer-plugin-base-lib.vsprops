@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="GStreamer Base Plugin Libs"
+	IntermediateDirectory="$(SolutionDir)Build\Windows\$(PlatformName)\$(ConfigurationName)\obj\gstreamer\$(ProjectName)"
+	InheritedPropertySheets="$(SolutionDir)Main\GStreamer\Windows\Properties\gstreamer-plugin-base.vsprops"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;..\..\..\Source\gst-plugins-base\gst-libs\&quot;;&quot;..\..\..\Source\gst-plugins-base\win32\common\&quot;"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		OutputFile="$(OutDir)\bin\lib$(Prefix)$(ProjectName)-$(ApiMajorVersion).$(ApiMinorVersion).dll"
+		ImportLibrary="$(OutDir)\lib\$(ProjectName)-$(ApiMajorVersion).$(ApiMinorVersion).lib"
+	/>
+</VisualStudioPropertySheet>

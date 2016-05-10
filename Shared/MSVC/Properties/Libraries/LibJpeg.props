@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibJpegMajorVersion>6</LibJpegMajorVersion>
+    <LibJpegMinorVersion>2</LibJpegMinorVersion>
+    <LibJpegMicroVersion>0</LibJpegMicroVersion>
+    <LibJpegVersionNumber>60200</LibJpegVersionNumber>
+    <LibJpegVersionString>$(LibJpegMajorVersion).$(LibJpegMinorVersion).$(LibJpegMicroVersion)</LibJpegVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>jpeg.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibJpegMajorVersion">
+      <Value>$(LibJpegMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibJpegMinorVersion">
+      <Value>$(LibJpegMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibJpegMicroVersion">
+      <Value>$(LibJpegMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibJpegVersionNumber">
+      <Value>$(LibJpegVersionNumber)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibJpegVersionString">
+      <Value>$(LibJpegVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

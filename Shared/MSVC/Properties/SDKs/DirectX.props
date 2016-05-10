@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <DirectXApiMajorVersion>0</DirectXApiMajorVersion>
+    <DirectXApiMinorVersion>0</DirectXApiMinorVersion>
+    <DirectXApiMicroVersion>0</DirectXApiMicroVersion>
+    <DirectXVersionString>$(DirectXApiMajorVersion).$(DirectXApiMinorVersion).$(DirectXApiMicroVersion)</DirectXVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Shared\SDKs\DirectX\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Shared\SDKs\DirectX\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <Link>
+      <AdditionalDependencies>ddraw.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Shared\SDKs\DirectX\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="DirectXApiMajorVersion">
+      <Value>$(DirectXApiMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="DirectXApiMinorVersion">
+      <Value>$(DirectXApiMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="DirectXApiMicroVersion">
+      <Value>$(DirectXApiMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="DirectXVersionString">
+      <Value>$(DirectXVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

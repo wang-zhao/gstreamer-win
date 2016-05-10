@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <FreeTypeMajorVersion>2</FreeTypeMajorVersion>
+    <FreeTypeMinorVersion>3</FreeTypeMinorVersion>
+    <FreeTypeMicroVersion>9</FreeTypeMicroVersion>
+    <FreeTypeInterfaceAge>6</FreeTypeInterfaceAge>
+    <FreeTypeVersionNumber>020309</FreeTypeVersionNumber>
+    <FreeTypeVersionString>$(FreeTypeMajorVersion).$(FreeTypeMinorVersion).$(FreeTypeMicroVersion)</FreeTypeVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.61030.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\freetype2;$(SolutionDir)Shared\Build\Windows\$(Platform)\include\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="FreeTypeMajorVersion">
+      <Value>$(FreeTypeMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FreeTypeMinorVersion">
+      <Value>$(FreeTypeMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FreeTypeMicroVersion">
+      <Value>$(FreeTypeMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FreeTypeInterfaceAge">
+      <Value>$(FreeTypeInterfaceAge)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FreeTypeVersionNumber">
+      <Value>$(FreeTypeVersionNumber)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FreeTypeVersionString">
+      <Value>$(FreeTypeVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

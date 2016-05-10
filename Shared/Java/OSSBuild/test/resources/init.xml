@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Init>
+	<System>
+		<Load class="ossbuild.init.TestLoader" />
+	</System>
+	<Registry>
+		<Reference class="ossbuild.init.TestRegistryReference" />
+	</Registry>
+</Init>

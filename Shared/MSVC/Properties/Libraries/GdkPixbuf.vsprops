@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="Gdk Pixbuf"
+	InheritedPropertySheets=""
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(OutDir)\include\gdk-pixbuf-$(LibGdkPixbufLibVersionString)&quot;;&quot;$(SolutionDir)Shared\Build\Windows\$(PlatformName)\include\gdk-pixbuf-$(LibGdkPixbufLibVersionString)&quot;"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="gdk_pixbuf-$(LibGdkPixbufLibVersionString).lib"
+	/>
+	<UserMacro
+		Name="LibGdkPixbufApiVersionString"
+		Value="2.0"
+	/>
+	<UserMacro
+		Name="LibGdkPixbufLibVersionString"
+		Value="$(LibGdkPixbufApiVersionString)"
+	/>
+</VisualStudioPropertySheet>

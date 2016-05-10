@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibNiceMajorVersion>0</LibNiceMajorVersion>
+    <LibNiceMinorVersion>0</LibNiceMinorVersion>
+    <LibNiceMicroVersion>9</LibNiceMicroVersion>
+    <LibNiceVersionString>$(LibNiceMajorVersion).$(LibNiceMinorVersion).$(LibNiceMicroVersion)</LibNiceVersionString>
+    <LibNiceApiVersionString>$(LibNiceMajorVersion).$(LibNiceMinorVersion)</LibNiceApiVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\stun;$(SolutionDir)Shared\Build\Windows\$(Platform)\include\stun;$(OutDir)include\nice;$(SolutionDir)Shared\Build\Windows\$(Platform)\include\nice;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>nice.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibNiceMajorVersion">
+      <Value>$(LibNiceMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibNiceMinorVersion">
+      <Value>$(LibNiceMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibNiceMicroVersion">
+      <Value>$(LibNiceMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibNiceVersionString">
+      <Value>$(LibNiceVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibNiceApiVersionString">
+      <Value>$(LibNiceApiVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

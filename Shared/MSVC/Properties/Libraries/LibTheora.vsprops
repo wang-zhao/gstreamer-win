@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="Theora"
+	>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="theora.lib theoradec.lib theoraenc.lib"
+	/>
+	<UserMacro
+		Name="LibTheoraMajorVersion"
+		Value="1"
+	/>
+	<UserMacro
+		Name="LibTheoraMinorVersion"
+		Value="0"
+	/>
+	<UserMacro
+		Name="LibTheoraMicroVersion"
+		Value="0"
+	/>
+	<UserMacro
+		Name="LibTheoraApiInterfaceAge"
+		Value="0"
+	/>
+	<UserMacro
+		Name="LibTheoraVersionString"
+		Value="$(LibTheoraMajorVersion).$(LibTheoraMinorVersion).$(LibTheoraMicroVersion)"
+	/>
+	<UserMacro
+		Name="LibTheoraApiVersionString"
+		Value="$(LibTheoraMajorVersion).$(LibTheoraMinorVersion)"
+	/>
+	<UserMacro
+		Name="LibTheoraLibVersionString"
+		Value="$(LibTheoraApiVersionString)-$(LibTheoraApiInterfaceAge)"
+	/>
+</VisualStudioPropertySheet>

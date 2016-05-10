@@ -1,0 +1,38 @@
+EXPORTS
+thread_list		DATA
+mutex			DATA
+start_cond		DATA
+sync_cond		DATA
+
+gst_check_init
+gst_check_chain_func
+gst_check_message_error
+gst_check_setup_element
+gst_check_teardown_element
+gst_check_setup_src_pad
+gst_check_setup_src_pad_by_name 
+gst_check_setup_sink_pad_by_name
+gst_check_teardown_pad_by_name
+gst_check_teardown_src_pad 
+gst_check_drop_buffers
+gst_check_caps_equal
+gst_check_element_push_buffer_list
+gst_check_element_push_buffer 
+gst_check_setup_sink_pad
+gst_check_teardown_sink_pad 
+gst_check_abi_list
+gst_check_run_suite 
+
+_gst_check_run_test_func
+
+suite_add_tcase
+tcase_create
+suite_create
+_tcase_add_test
+_fail_unless
+tcase_fn_start
+check_debug
+srunner_create
+srunner_free
+srunner_run_all
+srunner_ntests_failed

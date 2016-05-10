@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <ZLibMajorVersion>1</ZLibMajorVersion>
+    <ZLibMinorVersion>2</ZLibMinorVersion>
+    <ZLibMicroVersion>3</ZLibMicroVersion>
+    <ZLibVersion>$(ZLibMajorVersion).$(ZLibMinorVersion).$(ZLibMicroVersion)</ZLibVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>z.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="ZLibMajorVersion">
+      <Value>$(ZLibMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ZLibMinorVersion">
+      <Value>$(ZLibMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ZLibMicroVersion">
+      <Value>$(ZLibMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ZLibVersion">
+      <Value>$(ZLibVersion)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

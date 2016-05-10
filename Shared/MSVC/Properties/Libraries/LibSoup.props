@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibSoupMajorVersion>2</LibSoupMajorVersion>
+    <LibSoupMinorVersion>26</LibSoupMinorVersion>
+    <LibSoupMicroVersion>1</LibSoupMicroVersion>
+    <LibSoupApiInterfaceAge>1</LibSoupApiInterfaceAge>
+    <LibSoupVersionString>$(LibSoupMajorVersion).$(LibSoupMinorVersion).$(LibSoupMicroVersion)</LibSoupVersionString>
+    <LibSoupApiVersionString>2.4</LibSoupApiVersionString>
+    <LibSoupLibVersionString>$(LibSoupApiVersionString)</LibSoupLibVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\libsoup-$(LibSoupApiVersionString);$(SolutionDir)Shared\Build\Windows\$(Platform)\include\libsoup-$(LibSoupApiVersionString);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>soup-$(LibSoupLibVersionString).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibSoupMajorVersion">
+      <Value>$(LibSoupMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibSoupMinorVersion">
+      <Value>$(LibSoupMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibSoupMicroVersion">
+      <Value>$(LibSoupMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibSoupApiInterfaceAge">
+      <Value>$(LibSoupApiInterfaceAge)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibSoupVersionString">
+      <Value>$(LibSoupVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibSoupApiVersionString">
+      <Value>$(LibSoupApiVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibSoupLibVersionString">
+      <Value>$(LibSoupLibVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+    <Import Project="LibSchroedinger.props" />
+    <Import Project="OpenJPEG.props" />
+    <Import Project="MP3Lame.props" />
+    <Import Project="LibSpeex.props" />
+    <Import Project="..\SDKs\MinGW.props" />
+    <Import Project="LibTheora.props" />
+    <Import Project="LibVorbis.props" />
+    <Import Project="BZip2.props" />
+    <Import Project="ZLib.props" />
+    <Import Project="LibOil.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <FFmpegMajorVersion>0</FFmpegMajorVersion>
+    <FFmpegMinorVersion>5</FFmpegMinorVersion>
+    <FFmpegMicroVersion>0</FFmpegMicroVersion>
+    <FFmpegApiInterfaceAge>0</FFmpegApiInterfaceAge>
+    <FFmpegLibAvCodecBuildNumber>52</FFmpegLibAvCodecBuildNumber>
+    <FFmpegLibAvDeviceBuildNumber>52</FFmpegLibAvDeviceBuildNumber>
+    <FFmpegLibAvFilterBuildNumber>0</FFmpegLibAvFilterBuildNumber>
+    <FFmpegLibAvFormatBuildNumber>52</FFmpegLibAvFormatBuildNumber>
+    <FFmpegLibAvUtilBuildNumber>49</FFmpegLibAvUtilBuildNumber>
+    <FFmpegVersionString>$(FFmpegMajorVersion).$(FFmpegMinorVersion).$(FFmpegMicroVersion)</FFmpegVersionString>
+    <FFmpegApiVersionString>$(FFmpegMajorVersion).$(FFmpegMinorVersion)</FFmpegApiVersionString>
+    <FFmpegLibVersionString>$(FFmpegApiVersionString)-$(FFmpegApiInterfaceAge)</FFmpegLibVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>avutil-lgpl.lib;avfilter-lgpl.lib;avdevice-lgpl.lib;avformat-lgpl.lib;avcodec-lgpl.lib;swscale-lgpl.lib;vfw32.lib;wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="FFmpegMajorVersion">
+      <Value>$(FFmpegMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FFmpegMinorVersion">
+      <Value>$(FFmpegMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FFmpegMicroVersion">
+      <Value>$(FFmpegMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FFmpegApiInterfaceAge">
+      <Value>$(FFmpegApiInterfaceAge)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FFmpegLibAvCodecBuildNumber">
+      <Value>$(FFmpegLibAvCodecBuildNumber)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FFmpegLibAvDeviceBuildNumber">
+      <Value>$(FFmpegLibAvDeviceBuildNumber)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FFmpegLibAvFilterBuildNumber">
+      <Value>$(FFmpegLibAvFilterBuildNumber)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FFmpegLibAvFormatBuildNumber">
+      <Value>$(FFmpegLibAvFormatBuildNumber)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FFmpegLibAvUtilBuildNumber">
+      <Value>$(FFmpegLibAvUtilBuildNumber)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FFmpegVersionString">
+      <Value>$(FFmpegVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FFmpegApiVersionString">
+      <Value>$(FFmpegApiVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FFmpegLibVersionString">
+      <Value>$(FFmpegLibVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

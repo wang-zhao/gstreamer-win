@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibPngMajorVersion>1</LibPngMajorVersion>
+    <LibPngMinorVersion>5</LibPngMinorVersion>
+    <LibPngMicroVersion>0</LibPngMicroVersion>
+    <LibPngVersionNumber>10500</LibPngVersionNumber>
+    <LibPngVersionString>$(LibPngMajorVersion).$(LibPngMinorVersion).$(LibPngMicroVersion)</LibPngVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\libpng15;$(SolutionDir)Shared\Build\Windows\$(Platform)\include\libpng15;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libpng15.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibPngMajorVersion">
+      <Value>$(LibPngMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibPngMinorVersion">
+      <Value>$(LibPngMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibPngMicroVersion">
+      <Value>$(LibPngMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibPngVersionNumber">
+      <Value>$(LibPngVersionNumber)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibPngVersionString">
+      <Value>$(LibPngVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

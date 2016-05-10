@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibRtmp", "Main\rtmpdump-2.3\librtmp\LibRtmp.vcproj", "{DD8C38A6-6B59-4066-BCC4-52BB4572B719}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rtmpdump", "Main\rtmpdump-2.3\rtmpdump.vcproj", "{FE34AB2E-4F78-4C07-8D7D-224C84649318}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rtmpsrv", "Main\rtmpdump-2.3\rtmpsrv.vcproj", "{6982D3DA-6E25-421E-A86E-B3AC41805D52}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rtmpsuck", "Main\rtmpdump-2.3\rtmpsuck.vcproj", "{6982D3DA-6E25-421E-A86E-B3AC41805D56}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rtmpgw", "Main\rtmpdump-2.3\rtmpgw.vcproj", "{6982D3DA-6E25-421E-A86E-B3AC41805D57}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rtmpparse", "Main\rtmpdump-2.3\rtmpparse.vcproj", "{DC1525E5-3646-45E3-9D14-171E3EC4620E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD8C38A6-6B59-4066-BCC4-52BB4572B719}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DD8C38A6-6B59-4066-BCC4-52BB4572B719}.Debug|Win32.Build.0 = Debug|Win32
+		{DD8C38A6-6B59-4066-BCC4-52BB4572B719}.Release|Win32.ActiveCfg = Release|Win32
+		{DD8C38A6-6B59-4066-BCC4-52BB4572B719}.Release|Win32.Build.0 = Release|Win32
+		{FE34AB2E-4F78-4C07-8D7D-224C84649318}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FE34AB2E-4F78-4C07-8D7D-224C84649318}.Debug|Win32.Build.0 = Debug|Win32
+		{FE34AB2E-4F78-4C07-8D7D-224C84649318}.Release|Win32.ActiveCfg = Release|Win32
+		{FE34AB2E-4F78-4C07-8D7D-224C84649318}.Release|Win32.Build.0 = Release|Win32
+		{6982D3DA-6E25-421E-A86E-B3AC41805D52}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6982D3DA-6E25-421E-A86E-B3AC41805D52}.Debug|Win32.Build.0 = Debug|Win32
+		{6982D3DA-6E25-421E-A86E-B3AC41805D52}.Release|Win32.ActiveCfg = Release|Win32
+		{6982D3DA-6E25-421E-A86E-B3AC41805D52}.Release|Win32.Build.0 = Release|Win32
+		{6982D3DA-6E25-421E-A86E-B3AC41805D56}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6982D3DA-6E25-421E-A86E-B3AC41805D56}.Debug|Win32.Build.0 = Debug|Win32
+		{6982D3DA-6E25-421E-A86E-B3AC41805D56}.Release|Win32.ActiveCfg = Release|Win32
+		{6982D3DA-6E25-421E-A86E-B3AC41805D56}.Release|Win32.Build.0 = Release|Win32
+		{6982D3DA-6E25-421E-A86E-B3AC41805D57}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6982D3DA-6E25-421E-A86E-B3AC41805D57}.Debug|Win32.Build.0 = Debug|Win32
+		{6982D3DA-6E25-421E-A86E-B3AC41805D57}.Release|Win32.ActiveCfg = Release|Win32
+		{6982D3DA-6E25-421E-A86E-B3AC41805D57}.Release|Win32.Build.0 = Release|Win32
+		{DC1525E5-3646-45E3-9D14-171E3EC4620E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DC1525E5-3646-45E3-9D14-171E3EC4620E}.Debug|Win32.Build.0 = Debug|Win32
+		{DC1525E5-3646-45E3-9D14-171E3EC4620E}.Release|Win32.ActiveCfg = Release|Win32
+		{DC1525E5-3646-45E3-9D14-171E3EC4620E}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

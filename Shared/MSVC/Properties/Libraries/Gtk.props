@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+    <Import Project="GdkPixbuf.props" />
+    <Import Project="Cairo.props" />
+    <Import Project="Pango.props" />
+    <Import Project="Atk.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibGtkApiVersionString>3.0</LibGtkApiVersionString>
+    <LibGtkLibVersionString>$(LibGtkApiVersionString)</LibGtkLibVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+    <_PropertySheetDisplayName>Gtk+</_PropertySheetDisplayName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\gtk-$(LibGtkApiVersionString);$(SolutionDir)Shared\Build\Windows\$(Platform)\include\gtk-$(LibGtkApiVersionString);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>gtk-$(LibGtkLibVersionString).lib;gdk-$(LibGtkLibVersionString).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibGtkApiVersionString">
+      <Value>$(LibGtkApiVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibGtkLibVersionString">
+      <Value>$(LibGtkLibVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <NeonMajorVersion>0</NeonMajorVersion>
+    <NeonMinorVersion>28</NeonMinorVersion>
+    <NeonMicroVersion>4</NeonMicroVersion>
+    <NeonVersionNumber>002804</NeonVersionNumber>
+    <NeonVersionString>$(NeonMajorVersion).$(NeonMinorVersion).$(NeonMicroVersion)</NeonVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\neon;$(SolutionDir)Shared\Build\Windows\$(Platform)\include\neon;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>neon.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="NeonMajorVersion">
+      <Value>$(NeonMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="NeonMinorVersion">
+      <Value>$(NeonMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="NeonMicroVersion">
+      <Value>$(NeonMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="NeonVersionNumber">
+      <Value>$(NeonVersionNumber)</Value>
+    </BuildMacro>
+    <BuildMacro Include="NeonVersionString">
+      <Value>$(NeonVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

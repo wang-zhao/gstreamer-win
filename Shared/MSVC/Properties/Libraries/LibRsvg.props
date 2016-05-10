@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+    <Import Project="LibCroco.props" />
+    <Import Project="LibGsf.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <LibRsvgApiVersionString>2.0</LibRsvgApiVersionString>
+    <LibRsvgLibVersionString>2</LibRsvgLibVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\librsvg-$(LibRsvgApiVersionString);$(SolutionDir)Shared\Build\Windows\$(Platform)\include\librsvg-$(LibRsvgApiVersionString);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>rsvg-$(LibRsvgLibVersionString).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibRsvgApiVersionString">
+      <Value>$(LibRsvgApiVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibRsvgLibVersionString">
+      <Value>$(LibRsvgLibVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

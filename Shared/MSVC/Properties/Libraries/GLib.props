@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <GLibMajorVersion>2</GLibMajorVersion>
+    <GLibMinorVersion>20</GLibMinorVersion>
+    <GLibMicroVersion>1</GLibMicroVersion>
+    <GLibInterfaceAge>0</GLibInterfaceAge>
+    <GLibApiVersion>$(GLibMajorVersion).0</GLibApiVersion>
+    <GLibVersionString>$(GLibMajorVersion).$(GLibMinorVersion).$(GLibMicroVersion)</GLibVersionString>
+    <GLibBinaryAge>$(GLibMinorVersion)0$(GLibMicroVersion)</GLibBinaryAge>
+    <GLibApiMajorVersion>2</GLibApiMajorVersion>
+    <GLibApiMinorVersion>0</GLibApiMinorVersion>
+    <GLibApiMicroVersion>0</GLibApiMicroVersion>
+    <GLibApiInterfaceAge>0</GLibApiInterfaceAge>
+    <GLibApiVersionString>$(GLibApiMajorVersion).$(GLibApiMinorVersion)</GLibApiVersionString>
+    <GLibLibVersionString>$(GLibApiVersionString)</GLibLibVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\glib-$(GLibApiVersionString);$(SolutionDir)Shared\Build\Windows\$(Platform)\include\glib-$(GLibApiVersionString);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>glib-$(GLibLibVersionString).lib;gobject-$(GLibLibVersionString).lib;gthread-$(GLibLibVersionString).lib;gmodule-$(GLibLibVersionString).lib;gio-$(GLibLibVersionString).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="GLibMajorVersion">
+      <Value>$(GLibMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLibMinorVersion">
+      <Value>$(GLibMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLibMicroVersion">
+      <Value>$(GLibMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLibInterfaceAge">
+      <Value>$(GLibInterfaceAge)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLibApiVersion">
+      <Value>$(GLibApiVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLibVersionString">
+      <Value>$(GLibVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLibBinaryAge">
+      <Value>$(GLibBinaryAge)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLibApiMajorVersion">
+      <Value>$(GLibApiMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLibApiMinorVersion">
+      <Value>$(GLibApiMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLibApiMicroVersion">
+      <Value>$(GLibApiMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLibApiInterfaceAge">
+      <Value>$(GLibApiInterfaceAge)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLibApiVersionString">
+      <Value>$(GLibApiVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLibLibVersionString">
+      <Value>$(GLibLibVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <PangoMajorVersion>1</PangoMajorVersion>
+    <PangoMinorVersion>24</PangoMinorVersion>
+    <PangoMicroVersion>1</PangoMicroVersion>
+    <PangoVersionNumber>012401</PangoVersionNumber>
+    <PangoInterfaceAge>0</PangoInterfaceAge>
+    <PangoModuleVersion>1.6.0</PangoModuleVersion>
+    <PangoVersionString>$(PangoMajorVersion).$(PangoMinorVersion).$(PangoMicroVersion)</PangoVersionString>
+    <PangoApiVersionString>$(PangoMajorVersion).$(PangoInterfaceAge)</PangoApiVersionString>
+    <PangoLibVersionString>$(PangoApiVersionString)</PangoLibVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\pango-$(PangoApiVersionString);$(SolutionDir)Shared\Build\Windows\$(Platform)\include\pango-$(PangoApiVersionString);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>pango-$(PangoLibVersionString).lib;pangocairo-$(PangoLibVersionString).lib;pangoft2-$(PangoLibVersionString).lib;pangowin32-$(PangoLibVersionString).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="PangoMajorVersion">
+      <Value>$(PangoMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PangoMinorVersion">
+      <Value>$(PangoMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PangoMicroVersion">
+      <Value>$(PangoMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PangoVersionNumber">
+      <Value>$(PangoVersionNumber)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PangoInterfaceAge">
+      <Value>$(PangoInterfaceAge)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PangoModuleVersion">
+      <Value>$(PangoModuleVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PangoVersionString">
+      <Value>$(PangoVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PangoApiVersionString">
+      <Value>$(PangoApiVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PangoLibVersionString">
+      <Value>$(PangoLibVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

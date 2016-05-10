@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <CairoMajorVersion>1</CairoMajorVersion>
+    <CairoMinorVersion>8</CairoMinorVersion>
+    <CairoMicroVersion>6</CairoMicroVersion>
+    <CairoApiInterfaceAge>2</CairoApiInterfaceAge>
+    <CairoVersionString>$(CairoMajorVersion).$(CairoMinorVersion).$(CairoMicroVersion)</CairoVersionString>
+    <CairoApiVersionString>$(CairoMajorVersion).$(CairoMinorVersion)</CairoApiVersionString>
+    <CairoLibVersionString>$(CairoApiInterfaceAge)</CairoLibVersionString>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)include\cairo;$(SolutionDir)Shared\Build\Windows\$(Platform)\include\cairo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>cairo.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="CairoMajorVersion">
+      <Value>$(CairoMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="CairoMinorVersion">
+      <Value>$(CairoMinorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="CairoMicroVersion">
+      <Value>$(CairoMicroVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="CairoApiInterfaceAge">
+      <Value>$(CairoApiInterfaceAge)</Value>
+    </BuildMacro>
+    <BuildMacro Include="CairoVersionString">
+      <Value>$(CairoVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="CairoApiVersionString">
+      <Value>$(CairoApiVersionString)</Value>
+    </BuildMacro>
+    <BuildMacro Include="CairoLibVersionString">
+      <Value>$(CairoLibVersionString)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
